@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Добавить студента";
+}
+
+<div class="ssilki">
+    <p>@Html.ActionLink("Личный кабинет", "MainPanel", "Admin")</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>@Html.ActionLink("Панель администратора", "AdminPanel", "Admin")</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>Добавление студента</p>
+</div>
+     <div id="fixed_con"></div>
+    @if(ViewBag.Message=="ok")
+    {
+        <script type="text/javascript">
+            createInfoBlock(3, false, "Преподаватель добавлен");
+        </script>
+    }
+
+1. Введите фамилию и инициалы преподавателя<br />
+2. Нажмите на кнопку "Добавить преподавателя".
+<br /><br />
+
+@using( Html.BeginForm("AddTeacher", "Change",FormMethod.Post))
+{
+
+    @Html.TextBox("teacherFio", "", new { style = "width:400px;", placeholder = "ФИО преподавателя" });
+    <input type="submit" value="Добавить преподавателя"  />
+
+}

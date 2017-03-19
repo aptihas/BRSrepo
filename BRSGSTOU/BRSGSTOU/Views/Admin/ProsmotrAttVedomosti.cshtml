@@ -1,0 +1,126 @@
+﻿@{
+    Layout = null;   
+    <link href="@Url.Content("~/Content/Style.css")" rel="stylesheet" type="text/css" />
+}
+@{
+    ViewBag.Title = "Аттестационная ведомость";
+
+    int godServera = int.Parse(DateTime.Now.Year.ToString().Substring(DateTime.Now.Year.ToString().Length-2));
+    int godGruppi = int.Parse(ViewBag.Dannie[1].Substring(ViewBag.Dannie[1].Trim().IndexOf("-")+1,2));
+    int semestri = (godServera - godGruppi) * 2;
+    string obrazovatelniyGod = "";
+    if (DateTime.Now.Month >= 9)
+    {
+         obrazovatelniyGod = DateTime.Now.Year.ToString() + "/" + (DateTime.Now.Year + 1).ToString();
+    }
+    else
+    {
+         obrazovatelniyGod = (DateTime.Now.Year-1).ToString() + "/" + DateTime.Now.Year.ToString();
+    }
+    
+    string textVvedomostOSemestre = "";
+    if ((DateTime.Now.Month.ToString() == "1") | (DateTime.Now.Month.ToString() == "2") | (DateTime.Now.Month.ToString() == "3") | (DateTime.Now.Month.ToString() == "4") | (DateTime.Now.Month.ToString() == "5" | (DateTime.Now.Month.ToString() == "6")))
+    {
+        textVvedomostOSemestre = "весеннем (" + semestri + ")";
+        
+    }
+    else
+    {
+        if (semestri==0)
+        {
+            textVvedomostOSemestre = "осеннем (1)";
+        }
+        else
+        {
+            textVvedomostOSemestre = "осеннем (" + (semestri +1) + ")";
+        }
+    }
+    string Facultet_ID = Request.QueryString.Get(0);
+    string Gruppa_ID = Request.QueryString.Get(1);
+    string Disciplina_ID = Request.QueryString.Get(2);
+    string FacultetName = ViewBag.Dannie[0];
+    string GruppaName = ViewBag.Dannie[1];
+}
+
+<div style="text-align:right; clear: right;line-height:1.5; font-size:11pt;">
+    "Утверждаю"<br />
+    Декан ф-та _________________<br />
+    @DateTime.Now.ToString("D")
+</div>
+<br />
+<br />
+<div style="text-align:center; clear: left;">
+    <div style="font-weight:600; padding:3px;">АТТЕСТАЦИОННАЯ ВЕДОМОСТЬ</div>
+    <div style="padding:3px;">В <b>@textVvedomostOSemestre</b> семестре @obrazovatelniyGod учебного года факультета @ViewBag.Dannie[0]</div>
+    <div style="padding:3px;">группы <b>@ViewBag.Dannie[1]</b> по дисциплине «@ViewBag.Dannie[2]»</div>
+</div>
+
+<table class="StilTable" style="border:1px solid !important;" >
+    <tr>
+        <td rowspan="3" style="width:40px; text-align:center;"></td>
+        <td rowspan="3" style="width:400px; padding:5px !important;"></td>
+        <td colspan="3" style="font-weight:600;text-align:center;">1-ая аттестация</td>
+        <td colspan="4" style="font-weight:600;text-align:center;">2-я аттестация</td>
+        <td rowspan="3" style="font-style:italic; min-width:80px;text-align:center;">Досдача</td>
+        <td rowspan="3" style="font-style:italic; min-width :80px;text-align:center;">Премиальные (до 20 баллов)</td>
+        <td rowspan="3" style="font-style:italic; font-weight:600; min-width:80px; text-align:center;">Итого<br>
+            <span style="font-size: 1em;">(баллы)</span></td>
+        
+    </tr>
+    <tr>
+        <td style="width:115px; text-align:center; vertical-align:middle; height:30px;">Посещаем.</td>
+        <td style="width:115px;">Текущая атт.</td>
+        <td style="width:115px;">Рубежная атт.</td>
+        <td style="width:115px;">Посещаем.</td>
+        <td style="width:115px;">Текущая атт.</td>
+        <td style="width:115px;">Рубежная атт.</td>
+        <td style="width:115px;">Самост. работа</td>
+    </tr>
+    <tr>
+        <td style="font-style:italic;text-align:center; height:40px; vertical-align:middle;">Баллы (0-5)</td>
+        <td style="font-style:italic;text-align:center;">Баллы (0-15)</td>
+        <td style="font-style:italic;text-align:center;">Баллы (0-20)</td>
+        <td style="font-style:italic;text-align:center;">Баллы (0-10)</td>
+        <td style="font-style:italic;text-align:center;">Баллы (0-15)</td>
+        <td style="font-style:italic;text-align:center;">Баллы (0-20)</td>
+        <td style="font-style:italic;text-align:center;">Баллы (0-15)</td>
+    </tr>
+    <tr>
+        <td>№</td>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td>10</td>
+        <td>11</td>
+    </tr>
+    @{int i = 1;}
+    @foreach (BRSGSTOU.Models.Vedomost b in ViewBag.Vedomost)
+    {
+        <tr>
+            <td>@i</td>
+            <td style="text-align: left; padding:3px;">
+                @b.StudentName
+            </td>
+            <td>@b.Pos1</td>
+            <td>@b.Tek1</td>
+            <td>@b.Rub1</td>
+            <td>@b.Pos2</td>
+            <td>@b.Tek2</td>
+            <td>@b.Rub2</td>
+            <td>@b.Samost</td>
+            <td>@b.Dosdacha</td>
+            <td>@b.Premial</td>
+            <td>@b.Itog</td>
+
+            @{i++;}
+        </tr>
+        
+    }
+    
+</table>

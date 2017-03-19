@@ -1,0 +1,16 @@
+﻿@if(Request.IsAuthenticated) {
+
+    @Html.ActionLink("Выход", "LogOff", "Teacher", new {@class="polosaSleva"}) 
+    if (ViewBag.Rol == 1)
+    {
+        @Html.ActionLink("Личный кабинет", "MainPanel", "Admin", null, new { @class = "polosaSleva" })
+    }
+    else if (ViewBag.Rol == 2)
+    {
+        @Html.ActionLink("Личный кабинет", "TeacherCabinet", "Teacher", new {@class="polosaSleva"})
+    }
+    <p style="font-size:15px; margin-right:10px;">Вы вошли как: "@ViewBag.FIOTeacher"</p>
+}
+else {
+   @Html.ActionLink("Вход", "Login", "Teacher") 
+}

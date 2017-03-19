@@ -1,0 +1,517 @@
+﻿@{
+    BRSGSTOU.Models.dbBRSEntities contextDB = new BRSGSTOU.Models.dbBRSEntities();
+    Layout = null;
+    ViewBag.Title = "Статистика";
+    string sessiya = "", sessiya2 = "";
+    string data = "";
+    if (DateTime.Now.Month > 0 && DateTime.Now.Month < 9)
+    {
+        sessiya = "летней";
+        sessiya2 = "Летняя";
+        data = (DateTime.Now.Year - 1) + "-" + DateTime.Now.Year.ToString();
+    }
+    else
+    {
+        sessiya = "зимней";
+        sessiya2 = "Зимняя";
+        data = DateTime.Now.Year + "-" + (DateTime.Now.Year + 1).ToString();
+    }
+    <link href="@Url.Content("~/Content/Style.css")" rel="stylesheet" type="text/css" />
+}
+
+<div style="max-width: 1000px; margin: auto;">
+    <div style="text-align: center; height: 400px; padding-top: 200px; font-size: 30pt; margin-bottom: 30px;">
+        ИТОГИ<br />
+        @sessiya.ToUpper() ЗАЧЕТНО-ЭКЗАМЕНАЦИОННОЙ<br />
+        СЕССИИ @data УЧЕБНОГО ГОДА<br />
+        ПО СОСТОЯНИЮ НА @DateTime.Now.ToString("d")
+    </div>
+    <div style="text-align: center; height: 100px; font-size: 20pt; margin-bottom: 30px;">
+        @ViewBag.Fname
+    </div>
+
+    <div style="page-break-after:always"></div>
+
+    <div style="text-align: right; font-size: 13pt; margin-top: 30px;">
+        Таблица 1
+    </div>
+
+    <div style="text-align: center; font-size: 20pt;">
+        Основные показатели @sessiya зачетно - экзаменационной<br />
+        сессии за @data учебный год
+    </div>
+
+    <table class="statisticTable">
+        <tr>
+            <td><span style="font-size: 14px;">Показатель</span></td>
+            <td colspan="2">@sessiya2 зачетно-экзаменационная сессия</td>
+        </tr>
+        <tr>
+            <td>Общее количество студентов</td>
+            <td colspan="2">@ViewBag.KolStudentov</td>
+        </tr>
+        <tr>
+            <td>Студенты, приступившие к сессии, кол-во</td>
+            <td colspan="2">@ViewBag.StudentiPrestupivshieKSessii</td>
+        </tr>
+        <tr>
+            <td>Абсолютная успеваемость, % и количество по данному показателю</td>
+            <td>@ViewBag.AbsolutnayaUspevaemost</td>
+            <td>@Math.Round((double)(ViewBag.AbsolutnayaUspevaemost * 100 / ViewBag.KolStudentov))%</td>
+        </tr>
+        <tr>
+            <td>Студенты, сдавшие отчетности на «отлично», кол-во/%</td>
+            <td>@ViewBag.Otlichniki</td>
+            <td>@Math.Round((double)(ViewBag.Otlichniki * 100 / ViewBag.KolStudentov))%</td>
+        </tr>
+        <tr>
+            <td>Студенты, сдавшие отчетности на «хорошо», «хорошо» и «отлично», кол-во и %</td>
+            <td>@ViewBag.Hotoshisti</td>
+            <td>@Math.Round((double)(ViewBag.Hotoshisti * 100 / ViewBag.KolStudentov))%</td>
+        </tr>
+        <tr>
+            <td><span style="font-size: 14px;">Качественная успеваемость,</span><span style="font-size: 14px;"> </span><span style="font-size: 14px;">% и количество по данному показателю</span></td>
+            <td>@ViewBag.KachestvennayaUspevaemost</td>
+            <td>@Math.Round((double)(ViewBag.KachestvennayaUspevaemost * 100 / ViewBag.KolStudentov))%</td>
+        </tr>
+        <tr>
+            <td><span style="font-size: 14px;">Студенты, сдавшие отчетности только на «удовлетворительно», кол-во и %</span></td>
+            <td>@ViewBag.Troeshniki</td>
+            <td>@Math.Round((double)(ViewBag.Troeshniki * 100 / ViewBag.KolStudentov))%</td>
+        </tr>
+        <tr>
+            <td><span style="font-size: 14px;">Студенты, имеющие одну и более задолженности поотечностям, кол-во и %</span></td>
+            <td>@ViewBag.Zadolgniki</td>
+            <td>@Math.Round((double)(ViewBag.Zadolgniki * 100 / ViewBag.KolStudentov))%</td>
+        </tr>
+        <tr>
+            <td><span style="font-size: 14px;">Студенты, получившие продление сессии, кол-во и %</span></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><span style="font-size: 14px;">Отчисленные студенты, кол-во и %</span></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+
+    <div style="text-align: right; font-size: 13pt; margin-top: 30px;">
+        Таблица 2
+    </div>
+
+    <div style="text-align: center; font-size: 20pt;">
+        Абсолютная успеваемость по профилям/специализациям<br />
+        (количество и %)
+    </div>
+
+    <table class="statisticTable">
+        <tr>
+            <td rowspan="2"><span style="font-size: 14px;">Профиль/специализация</span></td>
+            <td colspan="2">Абсолютная успеваемость</td>
+        </tr>
+        <tr>
+            <td>Кол-во</td>
+            <td>%</td>
+        </tr>
+
+        @foreach (var p in ViewBag.Profiles)
+        {
+            <tr>
+                <td>@p.Name</td>
+                <td>@ViewBag.AbsUspList[p.Name]</td>
+                <td>@(100 * ViewBag.AbsUspList[p.Name] / ViewBag.KolStudProfile[p.Name])%</td>
+            </tr>
+        }
+    </table>
+
+    <div style="page-break-after:always"></div>
+
+    <div style="text-align: right; font-size: 13pt; margin-top: 30px;">
+        Таблица 3
+    </div>
+
+    <div style="text-align: center; font-size: 20pt;">
+        Отличники по профилям/специализациям (количество и %)
+    </div>
+
+    <table class="statisticTable">
+        <tr>
+            <td rowspan="2"><span style="font-size: 14px;">Профиль/специализация</span></td>
+            <td colspan="2">Отличники</td>
+        </tr>
+        <tr>
+            <td>Кол-во</td>
+            <td>%</td>
+        </tr>
+
+        @foreach (var p in ViewBag.Profiles)
+        {
+            <tr>
+                <td>@p.Name</td>
+                <td>@ViewBag.OtlProfile[p.Name]</td>
+                <td>@(100 * ViewBag.OtlProfile[p.Name] / ViewBag.KolStudProfile[p.Name])%</td>
+            </tr>
+        }
+    </table>
+
+    <div style="text-align: right; font-size: 13pt; margin-top: 30px;">
+        Таблица 4
+    </div>
+
+    <div style="text-align: center; font-size: 20pt;">
+        Качественная успеваемость
+        <br />
+        по профилям/специализациям (количество и %)
+
+    </div>
+
+    <table class="statisticTable">
+        <tr>
+            <td rowspan="2"><span style="font-size: 14px;">Профиль/специализация</span></td>
+            <td colspan="2">Качественная успеваемость</td>
+        </tr>
+        <tr>
+            <td>Кол-во</td>
+            <td>%</td>
+        </tr>
+
+        @foreach (var p in ViewBag.Profiles)
+        {
+            <tr>
+                <td>@p.Name</td>
+                <td>@ViewBag.KachestvenayaUspevaemostProfile[p.Name]</td>
+                <td>@(100 * ViewBag.KachestvenayaUspevaemostProfile[p.Name] / ViewBag.KolStudProfile[p.Name])%</td>
+            </tr>
+        }
+    </table>
+
+    <div style="page-break-after:always"></div>
+
+
+    <div style="text-align: right; font-size: 13pt; margin-top: 30px;">
+        Таблица 5
+    </div>
+
+    <div style="text-align: center; font-size: 20pt;">
+        Студенты, имеющие одну и более задолженности
+        <br />
+        по отчетностям, кол-во и %
+    </div>
+
+    <table class="statisticTable">
+        <tr>
+            <td rowspan="2"><span style="font-size: 14px;">Профиль/специализация</span></td>
+            <td colspan="2">Задолжники</td>
+        </tr>
+        <tr>
+            <td>Кол-во</td>
+            <td>%</td>
+        </tr>
+
+        @foreach (var p in ViewBag.Profiles)
+        {
+            <tr>
+                <td>@p.Name</td>
+                <td>@ViewBag.ZadolgnikiProfile[p.Name]</td>
+                <td>@(100 * ViewBag.ZadolgnikiProfile[p.Name] / ViewBag.KolStudProfile[p.Name])%</td>
+            </tr>
+        }
+    </table>
+
+    <div style="text-align: right; font-size: 13pt; margin-top: 30px;">
+        Таблица 6
+    </div>
+
+    <div style="text-align: center; font-size: 20pt;">
+        Отчисленные студенты, кол-во и %
+    </div>
+
+    <table class="statisticTable">
+        <tr>
+            <td rowspan="2"><span style="font-size: 14px;">Профиль/специализация</span></td>
+            <td colspan="2">Отчисленные студенты</td>
+        </tr>
+        <tr>
+            <td>Кол-во</td>
+            <td>%</td>
+        </tr>
+
+        @foreach (var p in ViewBag.Profiles)
+        {
+            <tr>
+                <td>@p.Name</td>
+                <td></td>
+                <td></td>
+            </tr>
+        }
+    </table>
+
+    <div style="page-break-after:always"></div>
+
+
+    <div style="text-align: right; font-size: 13pt; margin-top: 30px;">
+        Таблица 7
+    </div>
+
+    <div style="text-align: center; font-size: 20pt;">
+        Результаты  @sessiya зачетно-экзаменационной сессии @data учебного года студентов 1-го курса по профилям/специализациям
+
+    </div>
+
+    <table class="statisticTable">
+        <tr>
+            <td rowspan="3">Профиль/Специализация</td>
+            <td colspan="12">Категории студентов первого курса</td>
+        </tr>
+        <tr>
+            <td colspan="3">Выпускники школ с низкими баллами егэ (98-120 баллов)</td>
+            <td colspan="3">Выпускники школ со средними баллами егэ (120 -180 баллов)</td>
+            <td colspan="3">Выпускники школ с высокими баллами егэ (от 180 баллов и выше)</td>
+            <td colspan="3">Выпускники техникумов (колледжей), окончившие спо на отлично</td>
+        </tr>
+        <tr>
+            <td>Кол-во</td>
+            <td>Абс. усп, %</td>
+            <td>Кач. усп., %</td>
+            <td>Кол-во</td>
+            <td>Абс. усп, %</td>
+            <td>Кач. усп., %</td>
+            <td>Кол-во</td>
+            <td>Абс. усп, %</td>
+            <td>Кач. усп., %</td>
+            <td>Кол-во</td>
+            <td>Абс. усп, %</td>
+            <td>Кач. усп., %</td>
+        </tr>
+        @foreach (var p in ViewBag.Profiles)
+        {
+            <tr>
+                <td>@p.Name</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        }
+    </table>
+
+    <div style="text-align: right; font-size: 13pt; margin-top: 30px;">
+        Таблица 8
+    </div>
+
+    <div style="text-align: center; font-size: 20pt;">
+        Результаты летней зачетно-экзаменационной сессии @data учебного года
+        <br />
+        по курсам (абсолютная (А) и качественная (К) успеваемость, количество и %) 
+    </div>
+
+    <table class="statisticTable">
+        <tr>
+            <td colspan="4">1</td>
+            <td colspan="4">2</td>
+            <td colspan="4">3</td>
+            <td colspan="4">4</td>
+        </tr>
+        <tr>
+            <td colspan="2">A</td>
+            <td colspan="2">K</td>
+            <td colspan="2">A</td>
+            <td colspan="2">K</td>
+            <td colspan="2">A</td>
+            <td colspan="2">K</td>
+            <td colspan="2">A</td>
+            <td colspan="2">K</td>
+        </tr>
+        <tr>
+            <td>Кол-во</td>
+            <td>%</td>
+            <td>Кол-во</td>
+            <td>%</td>
+            <td>Кол-во</td>
+            <td>%</td>
+            <td>Кол-во</td>
+            <td>%</td>
+            <td>Кол-во</td>
+            <td>%</td>
+            <td>Кол-во</td>
+            <td>%</td>
+            <td>Кол-во</td>
+            <td>%</td>
+            <td>Кол-во</td>
+            <td>%</td>
+
+        </tr>
+        <tr style="height: 25px;">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <div style="page-break-after:always"></div>
+
+
+    <div style="text-align: right; font-size: 13pt; margin-top: 30px;">
+        Таблица 9
+    </div>
+
+    <div style="text-align: center; font-size: 20pt;">
+        Результаты летней зачетно-экзаменационной сессии @data учебного года по дисциплинам 
+        (количество задолженностей и % неуспеваемости)
+    </div>
+
+    <table class="statisticTable">
+        <tr>
+            <td rowspan="2">Курс</td>
+            <td colspan="12">Дисциплины</td>
+        </tr>
+        <tr>
+            <td colspan="2">Высшая математика</td>
+            <td colspan="2">Физика</td>
+            <td colspan="2">Химия</td>
+            <td colspan="2">Теоретическая механика</td>
+            <td colspan="2">Электротехника</td>
+            <td colspan="2">Информатика</td>
+        </tr>
+        <tr style="height: 25px;">
+            <td>1</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr style="height: 25px;">
+            <td>2</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr style="height: 25px;">
+            <td>3</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr style="height: 25px;">
+            <td>Итого</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <div style="text-align: right; font-size: 13pt; margin-top: 30px;">
+        Таблица 10
+    </div>
+
+    <div style="text-align: center; font-size: 20pt;">
+        Результаты @sessiya зачетно-экзаменационной сессии @data учебного года по дисциплинам 
+(количество задолженностей и % неуспеваемости)
+    </div>
+
+    <table class="statisticTable">
+        <tr>
+            <td rowspan="2">Курс</td>
+            <td colspan="20">Дисциплины</td>
+        </tr>
+        <tr>
+            <td colspan="2">История</td>
+            <td colspan="2">Философия</td>
+            <td colspan="2">Иностранный язык</td>
+            <td colspan="2">Политология</td>
+            <td colspan="2">Культурология</td>
+            <td colspan="2">Русский язык</td>
+            <td colspan="2">Чеченский язык</td>
+            <td colspan="2">История СК</td>
+            <td colspan="2">Вайнахская этика</td>
+            <td colspan="2">Физическая культура</td>
+        </tr>
+        <tr style="height: 25px;">
+            <td>1</td>
+            @for (int i = 0; i < 20; i++)
+            {
+                <td></td>
+            }
+        </tr>
+        <tr style="height: 25px;">
+            <td>2</td>
+            @for (int i = 0; i < 20; i++)
+            {
+                <td></td>
+            }
+        </tr>
+        <tr style="height: 25px;">
+            <td>3</td>
+            @for (int i = 0; i < 20; i++)
+            {
+                <td></td>
+            }
+        </tr>
+        <tr style="height: 25px;">
+            <td>Итого</td>
+            @for (int i = 0; i < 20; i++)
+            {
+                <td></td>
+            }
+        </tr>
+    </table>
+
+</div>

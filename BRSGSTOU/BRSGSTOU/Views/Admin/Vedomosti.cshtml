@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Ведомости";
+}
+  <div class="ssilki">
+        <p>@Html.ActionLink("Личный кабинет", "MainPanel", "Admin")</p>
+          <img class="slesh" src="../../Content/slesh.png" />
+        <p>Ведомости</p>
+  </div>
+
+   <p>@Html.ActionLink("Эказменационные, зачетные ведомости и  ведомости по курсовым проектам и работам для всех групп", "GruppList", "Admin", new {Facultet=ViewBag.Facultet_ID,VidVedomost="EKZ"}, new { @class = "fonSsilki" })</p>
+      <hr class="styletwo" />
+   <p>@Html.ActionLink("Аттестационные ведомости для всех групп", "GruppList", "Admin", new {Facultet= ViewBag.Facultet_ID,VidVedomost="ATT"}, new { @class = "fonSsilki" })</p>
+      <hr class="styletwo" />
+   <p>@Html.ActionLink("Сводные журналы групп", "GruppList", "Admin", new {Facultet= ViewBag.Facultet_ID,VidVedomost="SVODJOURNAL"}, new { @class = "fonSsilki" })</p>
+      <hr class="styletwo" />
+

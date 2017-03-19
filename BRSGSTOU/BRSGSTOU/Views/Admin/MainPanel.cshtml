@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Панель администратора";
+}
+  <div class="ssilki">
+        <p> Личный кабинет </p> 
+  </div>
+
+   <p>@Html.ActionLink("Ведомости", "Vedomosti", "Admin", new {Facultet=ViewBag.Facultet_ID,VidVedomost="EKZ"}, new { @class = "fonSsilki" })</p>
+      <hr class="styletwo" />
+   <p>@Html.ActionLink("Панель администратора", "AdminPanel", "Admin", new {Facultet= ViewBag.Facultet_ID,VidVedomost="ATT"}, new { @class = "fonSsilki" })</p>
+      <hr class="styletwo" />

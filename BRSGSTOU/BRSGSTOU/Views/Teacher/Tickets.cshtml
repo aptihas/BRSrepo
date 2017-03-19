@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Создание зачетно-экзаменационных билетов";
+}
+    <script type="text/javascript">
+        function changeQ(e, x) {
+            if ((e.value >= 0) & (e.value <= x)) {
+                e.value = e.value.replace(/^0+/, '');
+            }
+            else if (e.value > x) {
+                e.value = parseInt(x);
+            }
+            else {
+                alert("Неверный формат!")
+                e.value = 0;
+            }
+        }
+     </script>
+
+<div class="ssilki">
+    <p>@Html.ActionLink("Личный кабинет", "TeacherCabinet", "Teacher")</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>Создание зачетно-экзаменационных билетов</p>
+</div>
+1. Заполните поля для вопросов. (Вопросы нумеровать не надо. Каждая строка представляет с собой отдельный вопрос.)<br />
+2. Указать число билетов<br />
+3. Указать число вопросов в билете<br />
+4. Нажать на кнопку "Создать билеты"<br>
+5. После того как все билеты будут созданы, необходимо их выделить, скопировать и вставить в Word.
+<br /><br />
+
+@using (Html.BeginForm("TicketsView", "Teacher",FormMethod.Post))
+{
+    <div style="text-align:center;width:800px;">Шапка</div>
+    @Html.TextArea("shapka","Грозненский государственный нефтяной технический университет им.акад. М.Д. Миллионщикова\nИнститут прикладных информационных технологий\n Группа \"\"      Семестр \"\"\nДисциплина \"\"",new { style = "width:800px;height:80px;text-align:center;",placeholder="Шапка билета"})
+    <br /><br />
+    <div style="text-align:center;width:800px;">Подложка</div>
+    @Html.TextBox("podlogka", "Подпись преподавателя___________________     Подпись заведующего кафедрой___________________", new { style = "width:800px;text-align:center;"})
+    <br /><br />
+    @Html.TextArea("ticketsList","", new { style = "width:800px;height:400px;",placeholder="Вопросы к билетам"})
+    <br /><br />
+    @Html.TextBox("ticketsCount", "", new { style = "width:130px;",placeholder="Число билетов", @onchange = "changeQ(this,100)" })
+    <br /><br />
+    @Html.TextBox("questionsCount", "", new {style="width:130px;",placeholder="Число вопросов",@onchange = "changeQ(this,10)"})
+    <br /><br />
+    <input type="submit" value="Создать вопросы" />
+}

@@ -1,0 +1,28 @@
+﻿@{string gruppa = "";}
+
+<div class="ssilki">
+    <p>@Html.ActionLink("Личный кабинет", "TeacherCabinet", "Teacher")</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>Атт. ведомости</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>Выберите группу:</p>
+</div>
+@{
+    string PrepodName = ViewBag.PrepodName;
+}
+@{string gruppChar = "";}
+@foreach (BRSGSTOU.Models.TeachersData b in ViewBag.PrepodDisciplins)
+{
+    gruppa = b.Gruppa;
+    if (gruppChar == "" || gruppChar == gruppa.Substring(0, gruppa.IndexOf("-")))
+    {
+    <p style="float:left;">@Html.ActionLink(gruppa, "GruppsSubject", "Teacher", new { Gruppa = b.Gruppa_ID }, new { @class = "fonSsilki" })</p>
+    }
+    else
+    {
+    <hr class="styletwo" />
+    <p style="float:left;">@Html.ActionLink(gruppa, "GruppsSubject", "Teacher", new { Gruppa = b.Gruppa_ID }, new { @class = "fonSsilki" })</p>
+    }
+    gruppChar = gruppa.Substring(0, gruppa.IndexOf("-"));
+}
+<br /><br /><br />

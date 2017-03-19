@@ -1,0 +1,18 @@
+﻿<div class="ssilki">
+    <p>@Html.ActionLink("Личный кабинет", "TeacherGrupps", "Teacher")</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>Выберите действие:</p>
+</div>
+@{
+    string PrepodName = ViewBag.PrepodName;
+}
+<div id="center_loader">
+    <img src="../../Content/loader.gif" / width="40" height="40">
+</div>
+<p>@Html.ActionLink("Аттестационные ведомости преподавателя " + "\"" + PrepodName + "\"", "TeacherGrupps", "Teacher", null, new { @class = "fonSsilki" })</p>
+<hr class="styletwo" />
+<p>@Html.ActionLink("Журнал учета посещаемости студентов для преподавателя " + "\"" + PrepodName + "\"", "JournalGrupps", "Journal", null, new { @class = "fonSsilki" })</p>
+<hr class="styletwo" />
+<p>@Html.ActionLink("Создать журнал для распечатки", "PDFJournal", "Journal", null, new { @class = "fonSsilki", @onclick="$('#center_loader').show();"  })</p>
+<hr class="styletwo" />
+<p>@Html.ActionLink("Создать зачетно-экзаменационные билеты", "Tickets", "Teacher", null, new { @class = "fonSsilki", @onclick="$('#center_loader').show();"  })</p>

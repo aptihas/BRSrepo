@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Style.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/infoblocks/infoblocks.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/scripts/jquery-1.7.1.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/infoblocks/infoblocks.js")" type="text/javascript"></script>
+</head>
+
+<body>
+    <div class="prepodu">@Html.Action("Profile", "Teacher")</div>
+    <div class="header">
+        <a href="@Url.Action("ViborFaculteta","Student",null)">
+            <img src="../../Content/logo.png" /></a>
+        БАЛЛЬНО-РЕЙТИНГОВАЯ СИСТЕМА ГГНТУ им. акад. М.Д. Миллионщикова
+    </div>
+    <div class="content">
+        @RenderBody()
+    </div>
+    <br /><br />
+    <div id="fixed_con"></div>
+    <div class="footer">
+        Разработчик: Хасухаджиев А.
+    </div>
+</body>
+</html>

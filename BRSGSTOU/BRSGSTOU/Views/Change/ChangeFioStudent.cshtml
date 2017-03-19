@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Изменить ФИО студента";
+}
+
+<div class="ssilki">
+    <p>@Html.ActionLink("Личный кабинет", "MainPanel", "Admin")</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>@Html.ActionLink("Панель администратора", "AdminPanel", "Admin")</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>Изменить ФИО студента</p>
+</div>
+     <div id="fixed_con"></div>
+    @if(ViewBag.Message=="ok")
+    {
+        <script type="text/javascript">
+            createInfoBlock(3, false, "ФИО изменины");
+        </script>
+    }
+1. Выберите из списка студента, ФИО которого необходимо изменить.<br />
+2. Введите новые ФИО студента.<br />
+3. Нажмите кнопку "Изменить ФИО студента".<br />
+<br /><br />
+@using( Html.BeginForm("ChangeFioStudent","Change",FormMethod.Post))
+{
+ 
+    <select size="20" name="idStudenta">
+        @foreach(BRSGSTOU.Models.ModelStudent s in  ViewBag.Students)
+        {
+          <option value="@s.ID_Studenta">@s.GruppName - @s.FIOStudenta</option>
+        }
+    </select>
+    <br /><br />
+     @Html.TextBox("StudentNewName", "", new {style="width:400px;text-transform: uppercase;", placeholder="Новые ФИО студента"})
+    <br /><br />
+    <input type="submit" value="Изменить ФИО студента" />
+}

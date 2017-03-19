@@ -1,0 +1,627 @@
+﻿/* Таблица ведомости
+-----------------------------------------------------------------------------*/
+body {
+    min-width:312px;
+}
+.tdTime {
+    cursor:pointer;
+}
+.tdTime:hover {
+    font-weight:800;
+    background:red;
+    color:white;
+}
+.student-auto-update {
+    background:#5D6BB3;
+    font-weight:800;
+    font-family:'Times New Roman';
+    font-size:14px;
+    text-shadow:1px 1px 5px rgba(0, 0, 0, 0.19);
+
+}
+.StilTable {
+font-size: 14px;
+margin:auto;
+border:2px solid;
+border-collapse: collapse;
+text-align: center;
+width:1200px;
+}
+
+.StilTable tr, td:first-child {
+border:1px solid;
+text-align:center;
+}
+
+.StilTable tbody tr:nth-child(n+5):hover {
+background-color:rgb(176, 203, 242);
+}
+
+.StilTable tr, td {
+border-style: solid;
+padding:3px;
+border-width: 0 1px 1px 0;
+border-color: white;
+}
+.StilTable tr, td:nth-child(n+3) {
+width:85px;
+}
+
+.StilTable td {
+border:1px solid;
+padding:1px;
+}
+
+.StilTable td input {
+border:0px solid;
+width:80px;
+text-align:center;
+background-color:rgba(255, 255, 255, 0.00);
+}
+
+
+/* Таблица ведомости экзамен
+-----------------------------------------------------------------------------*/
+.StilTableEkzam {
+font-size: 14px;
+margin:auto;
+border-collapse: collapse;
+text-align: center;
+}
+
+.StilTableEkzam tr, td:first-child {
+border:1px solid;
+text-align:center;
+}
+
+.StilTableEkzam tbody tr:hover {
+background-color:rgb(176, 203, 242);
+}
+
+
+.StilTableEkzam tr, td {
+border-style: solid;
+padding:3px;
+border-width: 0 1px 1px 0;
+border-color: white;
+}
+
+.StilTableEkzam td {
+border:1px solid;
+padding:1px;
+}
+
+.StilTableEkzam td input {
+border:0px solid;
+width:80px;
+text-align:center;
+background-color:rgba(255, 255, 255, 0.00);
+}
+
+.shirinaVedEkzam {
+margin:auto;
+width:850px;
+}
+/* таблица на примечание в экзаменационной ведомости
+-----------------------------------------------------------------------------*/
+.tablePrimechanie {
+    border-collapse: collapse;
+    margin:auto; 
+    text-align:center;
+    border:1px solid;
+    padding:0px;
+}
+.tablePrimechanie tbody tr {
+border:1px solid;
+}
+.tablePrimechanie tbody td {
+border:1px solid;
+}
+.tableItogovEkamVed {
+    border-collapse: collapse;
+    margin:auto; 
+    border:1px solid;
+    padding:0px;
+}
+.tableItogovEkamVed tbody tr {
+border:1px solid;
+width:150px;
+}
+.tableItogovEkamVed tbody td {
+text-align:left;
+border:1px solid;
+width:150px;
+}
+.polosaSleva {
+    border-left:2px solid #5D6BB3;
+}
+
+.styletwo {
+    border: 0;
+    width:100%;
+    height:1px;
+    clear:both;
+    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(93,107,179,0.55), rgba(0,0,0,0)); 
+    background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(93,107,179,0.55), rgba(0,0,0,0)); 
+    background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(93,107,179,0.55), rgba(0,0,0,0)); 
+    background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(93,107,179,0.55), rgba(0,0,0,0)); 
+}
+
+
+
+
+/* Header
+-----------------------------------------------------------------------------*/
+.header {
+	min-height: 50px;
+    max-height:250px;
+    font-size:30px;
+    padding-top:15px;
+    color:white;
+	background: #5D6BB3;
+}
+.header img {
+	float:left;
+    width:100px; 
+    height:100px; 
+    margin-top:-30px; 
+    margin-left:50px; 
+    margin-right:20px;
+}
+
+.prepodu {
+        height:30px;
+}
+.prepodu p{
+    text-align:left;
+    float:right;
+    color: #5D6BB3; 
+    font-weight:700; 
+    margin-top:7px;
+}
+.prepodu a{
+    text-align:left;
+    float:right;
+    padding-left:5px;
+    padding-right:5px;
+    padding-top:3px;
+    padding-bottom:3px;
+	text-decoration:none;
+    font-size:14pt;
+    color: #5D6BB3; 
+    font-weight:400; 
+}
+.prepodu a:hover{
+    color:white;
+    background-color: #5D6BB3; 
+
+}
+#center_loader {
+position:fixed;
+left:50%;
+z-index:999999;
+top:40%;
+display:none;
+height:0px;
+margin:0px;
+text-align:center;
+}
+
+
+
+/* Middle
+-----------------------------------------------------------------------------*/
+.fonSsilki {
+background-color:#5D6BB3;
+
+}
+.fonSsilki:hover {
+    box-shadow:3px 3px 3px gray;
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+}
+.content {
+	padding-left:10%;
+    padding-top:1%;
+    padding-bottom:1%;
+    padding-right:8%;
+}
+
+.content p a {
+    vertical-align:middle;
+    text-align:left;
+    color:white;
+    font-weight:600;
+    text-decoration:none;
+    padding:5px;
+    margin:5px;
+    font-size:14pt;
+}
+.footer {
+    position: fixed; 
+    left: 0; bottom: 0; 
+    padding: 5px;
+    background: #5D6BB3; 
+    color: #fff;
+    width:100%;
+    font-weight:400;
+    text-align:center;
+    font-size:8pt;
+}
+
+
+.editor-field input[type="text"] {
+    border: 1px solid #cccccc; 
+    padding:2px;
+   border-radius: 5px; 
+   -webkit-border-radius: 5px; 
+   -moz-border-radius: 5px; 
+   -khtml-border-radius: 5px; 
+   outline: none; 
+   height: 20px;
+   width: 150px; 
+   color: #cccccc;
+   font-size: 14px; 
+    
+}
+
+.editor-field input[type="text"]:focus {
+  color: #000000;
+  border: 1px solid #5D6BB3;
+}
+
+.editor-field input[type="password"] {
+   border: 1px solid #cccccc; 
+   border-radius: 5px; 
+   padding:2px;
+   -webkit-border-radius: 5px; 
+   -moz-border-radius: 5px; 
+   -khtml-border-radius: 5px; 
+   outline: none; 
+   height: 20px;
+   width: 150px; 
+   color: #cccccc;
+   font-size: 14px; 
+    
+}
+.editor-field input[type="password"]:focus {
+  color: #000000;
+  border: 1px solid #5D6BB3;
+}
+.editor-field input[type="checkbox"] {
+   border: 1px solid #cccccc; 
+   border-radius: 5px; 
+   -webkit-border-radius: 5px; 
+   -moz-border-radius: 5px; 
+   -khtml-border-radius: 5px; 
+   outline: none; 
+   height:15px;
+   padding:5px;
+   color: #cccccc;
+   font-size: 14px; 
+    
+}
+
+
+
+.voytiClass {
+   border: 1px solid #cccccc; 
+   border-radius: 5px; 
+   padding:5px;
+   -webkit-border-radius: 5px; 
+   -moz-border-radius: 5px; 
+   -khtml-border-radius: 5px; 
+   outline: none; 
+   color:white;
+   font-size: 14px; 
+   font-weight:600; 
+   width:80px;
+   background-color:#5D6BB3;
+    
+}
+.voytiClass:hover {
+cursor:pointer;
+    
+}
+.nadpisi {
+    margin-left:-3%;
+    margin-top:2%;
+    margin-bottom:2%;
+    margin-right:2%;
+    min-width:180px;
+    font-size:14pt; 
+    color: #5D6BB3; 
+    font-weight:600; 
+}
+.editor-label {
+    margin-top:10px;
+    font-size:14pt; 
+    color: #5D6BB3; 
+    font-weight:600; 
+}
+.nazvaniePredmetNaSsilke {
+    color:#5D6BB3 !important;
+    font-weight:600 !important;
+    font-size:20px;
+}
+
+.ssilki {
+    min-height:60px;
+    max-height:100px;
+    display:inline-block;
+    width:100%;
+    border-bottom:1px solid #5D6BB3 !important;
+}
+
+.ssilki p {
+    float:left;
+    vertical-align:middle !important;
+    color:#5D6BB3;
+    font-size: 12pt;
+    font-weight:600;
+
+}
+
+.ssilki p a {
+    background-color:none !important;
+    vertical-align:top !important;
+    font-size: 12pt!important;
+    color: #5D6BB3 !important;
+    font-weight:600 !important;
+    margin:0px !important;
+    padding:0px !important;
+}
+.ssilki p a:hover {
+    text-decoration:underline; 
+}
+
+.slesh {
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin-top: 16px;
+}
+
+.sohranit {
+    background-color:#5D6BB3; 
+    font-weight:600;
+    padding:5px;
+    margin:5px;
+    color:white;
+    text-decoration:none;
+
+}
+
+
+
+.tableJurnal {
+    border-collapse: collapse;
+    text-align:center;
+    border:1px solid;
+    padding:0px;
+}
+.tableJurnal tbody tr {
+border:1px solid;
+}
+.tableJurnal tbody tr:first-child {
+font-weight:600;
+padding:5px;
+}
+.tableJurnal tbody tr:hover {
+background-color:rgb(176, 203, 242);
+border:1px solid;
+}
+.tableJurnal tbody td {
+border:1px solid;
+text-align:center;
+}
+
+.tableJurnal tbody td input[type="radio"] {
+   padding:5px;
+   background-color:red;
+   font-size: 14px; 
+}
+.tableJurnal tbody td input[type="radio"]:hover {
+   cursor:pointer;
+}
+.jurnalButton {
+    background-color: #5D6BB3;
+    font-weight: 600;
+    font-size:16px;
+    padding: 5px;
+    border:0px;
+    margin: 5px;
+    color: white;
+    text-decoration: none;
+}
+.jurnalButton:hover {
+   cursor:pointer;
+}
+
+.prisutstvuet {
+    float: left;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 2px;
+    color: green;
+}
+.prisutstvuet:hover {
+    cursor:pointer;
+}
+.otsutstvuet {
+    float: right;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 2px;
+    color: red;
+}
+
+/*Стиль таблицы журнала*/
+
+.jurnalTable {
+font-size: 14px;
+margin:auto;
+border-collapse: collapse;
+border:2px solid;
+}
+.jurnalTable td {
+border:1px solid;
+text-align:center;
+padding:3px;
+}
+
+.jurnalTable tr:first-child {
+border:2px solid;
+text-align:center;
+padding:3px;
+font-weight:800;
+font-size: 16px;
+}
+.jurnalTable tr:first-child td {
+text-align:center;
+}
+
+.jurnalTable tr td:nth-child(n+3) {
+max-width:10px;
+}
+
+
+.jurnalTable td:nth-child(2) {
+border:1px solid;
+text-align:center;
+padding:3px;
+}
+.rotate {
+ -moz-transform:    rotate(-90deg) translateX(-30px);
+ -o-transform:      rotate(-90deg) translateX(-30px);
+ -webkit-transform: rotate(-90deg) translateX(-30px);
+ transform:         rotate(-90deg) translateX(-30px);
+ padding-left:5px;
+}
+
+.jurnalTable tbody tr:nth-child(n+2):hover {
+background-color:rgb(176, 203, 242);
+}
+
+
+.StilTable td input:hover {
+cursor:pointer;
+}
+
+/* SQUARED ONE */
+.squaredOne {
+	width: 20px;
+	height: 20px;
+    vertical-align:middle;
+    margin:0px;
+	position: relative;
+}
+
+.JournalPechat {
+    margin:auto;
+    border:1px solid black;
+    border-collapse: collapse;
+}
+.JournalPechat tr{
+    border:1px solid black;
+    min-height:30px;
+    max-height:30px;
+}
+.JournalPechat tr:first-child{
+    border:1px solid black;
+    height:100px;
+}
+.JournalPechat tr td {
+    border:1px solid black;
+    min-width:12px;
+}
+
+.rotate {
+  -webkit-transform: rotate(-90deg); /* не забываем префиксные свойства */
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  white-space:pre;
+}
+
+
+
+
+.statisticTable {
+font-size: 14px;
+margin:auto;
+border-collapse: collapse;
+border:2px solid;
+}
+
+.statisticTable td:first-child {
+border:1px solid;
+text-align:left;
+padding:3px;
+}
+.statisticTable td {
+border:1px solid;
+text-align:center;
+padding:3px;
+}
+
+.statisticTable tr:first-child {
+border:1px solid;
+text-align:center;
+padding:3px;
+font-weight:800;
+font-size: 16px;
+}
+
+.statisticTable tr {
+border:1px solid;
+text-align:center;
+padding:3px;
+font-weight:800;
+font-size: 16px;
+}
+
+.statisticTable tr:first-child td {
+text-align:center;
+}
+
+
+
+
+/*Стиль сводного журнала*/
+
+.svodniyJurnal {
+font-size: 14px;
+margin:auto;
+border-collapse: collapse;
+border:2px solid;
+}
+.svodniyJurnal td {
+border:1px solid;
+text-align:center;
+padding:3px;
+}
+
+.svodniyJurnal tr:first-child {
+border:2px solid;
+text-align:center;
+padding:3px;
+font-weight:800;
+font-size: 16px;
+}
+.svodniyJurnal tr:first-child td {
+text-align:center;
+}
+
+
+.svodniyJurnal td:nth-child(2) {
+border:1px solid;
+text-align:left;
+padding:3px;
+min-width:200px;
+}
+
+.svodniyJurnal tbody tr:nth-child(n+2):hover {
+background-color:rgb(176, 203, 242);
+}

@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Изменить название группы";
+}
+
+<div class="ssilki">
+    <p>@Html.ActionLink("Личный кабинет", "MainPanel", "Admin")</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>@Html.ActionLink("Панель администратора", "AdminPanel", "Admin")</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>Изменить название группы</p>
+</div>
+     <div id="fixed_con"></div>
+    @if(ViewBag.Message=="ok")
+    {
+        <script type="text/javascript">
+            createInfoBlock(3, false, "Название изменено");
+        </script>
+    }
+1. Выберите из списка группу, название которой необходимо изменить.<br />
+2. Введите новое название группы.(Название группы обязательно должно содержать год поступления через дефис например: СК-13 или ПИ-14П)<br />
+3. Нажмите кнопку "Изменить название группы".<br />
+<br /><br />
+
+@using (Html.BeginForm("ChangeGruppName", "Change", FormMethod.Post))
+{
+    
+    <select name="idGruppi">
+        @foreach(BRSGSTOU.Models.tableGrupp g in  ViewBag.Grupps)
+        {
+          <option value="@g.ID">@g.Name</option>
+        }
+    </select>
+    
+    
+    @Html.TextBox("GruppNewName", "", new {style="width:400px;text-transform: uppercase;", placeholder="Новое название группы"})
+
+    <input type="submit" value="Изменить название группы"  />
+}

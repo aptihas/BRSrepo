@@ -1,0 +1,63 @@
+﻿@{
+    Layout = null;
+    <link href="@Url.Content("~/Content/Style.css")" rel="stylesheet" type="text/css" />
+}
+
+@{
+    ViewBag.Title = "BalliPoVsemPredmetam";
+    var contextDB = new BRSGSTOU.Models.dbBRSEntities();
+    int Facultet_ID = int.Parse(Request.QueryString.Get(0));
+    int Grupp_ID = int.Parse(Request.QueryString.Get(1));
+    string Gruppa = (from t in contextDB.tableGrupp where t.ID == Grupp_ID select t.Name).First().ToString();
+    string FacultetName = (from t in contextDB.tableFacultet where t.ID == Facultet_ID select t.Name).First().ToString();
+    string abrev="";
+    int n = 1;
+}
+
+<div style="text-align: center; clear: left;">
+    <div style="font-weight: 600; padding: 3px;">СВОДНЫЙ ЖУРНАЛ</div>
+    <div style="padding: 3px;"><b>Итоговые баллы студентов по всем дисциплинам для группы @Gruppa </b></div>
+</div>
+
+<table class="svodniyJurnal">
+
+    <tr>
+        <td>
+            №
+        </td>
+        <td>
+            ФИО
+        </td>
+        @foreach (var d in ViewBag.Disciplini)
+        {
+            <td>
+                @{abrev = BRSGSTOU.Models.MyFramework.Abreviatura(d.Name.Trim().Split(' '));}
+                @abrev
+                
+            </td>
+        }
+    </tr>
+    @foreach (var s in ViewBag.Students)
+    {
+        <tr>
+            <td>@n</td>
+            <td>
+                @s.Name
+            </td>
+            @foreach (var d in ViewBag.Disciplini)
+            {
+                foreach (var i in ViewBag.Itogi)
+                {
+                    if(s.ID==i.Student_ID && d.ID==i.Disciplina_ID)
+                    {
+                        <td>
+                            @i.Itog
+                        </td>
+                        break;
+                    }
+                }
+            }
+        </tr>
+        n++;
+    }
+</table>

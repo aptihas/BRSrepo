@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "Добавить дисциплину";
+}
+
+<div class="ssilki">
+    <p>@Html.ActionLink("Личный кабинет", "MainPanel", "Admin")</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>@Html.ActionLink("Панель администратора", "AdminPanel", "Admin")</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>Добавление студента</p>
+</div>
+<div id="fixed_con"></div>
+@if (ViewBag.Message == "ok")
+{
+    <script type="text/javascript">
+        createInfoBlock(3, false, "Дисциплина добавлена");
+    </script>
+}
+
+1. Выберите группу, в которую добавляется дисциплина.<br />
+2. Введите название дисциплины.<br />
+3. Выберите преподавателя дисциплины.<br />
+4. Выберите вид отчетности.<br />
+5. Выберите курсовую отчетность (если курсовая отченость отсутвует, то выберите "Нет").<br />
+6. Введите часы дисциплины.<br />
+7. Нажмите на кнопку "Добавить дисциплину".
+<br />
+<br />
+
+<script type="text/javascript">
+    function changeQ(e, x) {
+        if ((e.value >= 0) & (e.value <= x)) {
+            e.value = e.value.replace(/^0+/, '');
+        }
+        else if (e.value > x) {
+            e.value = parseInt(x);
+        }
+        else {
+            alert("Неверный формат!")
+            e.value = 0;
+        }
+    }
+</script>
+
+
+@using (Html.BeginForm("AddDisciplin", "Change", FormMethod.Post))
+{
+ 
+    <select name="idGruppi">
+        @foreach (var g in ViewBag.Grupps)
+        {
+            <option value="@g.ID">@g.Name</option>
+        }
+    </select>
+    <br />
+    <br />
+    @Html.TextBox("disciplinName", "", new { style = "width:400px;text-transform: uppercase;", placeholder = "Дисциплина" });
+    <br />
+    <br />
+    <select name="idPrepoda">
+        @foreach (var p in ViewBag.Prepods)
+        {
+            <option value="@p.ID">@p.Name</option>
+        }
+    </select>
+    <br />
+    <br />
+    <select name="vidOtchetnosti">
+        <option value="1">Экзамен</option>
+        <option value="2">Диф. зачет</option>
+        <option value="3">Зачет</option>
+    </select>
+    <br />
+    <br />
+    <select name="kursovayaOtchenost">
+        <option value="1">Курсовая работа</option>
+        <option value="2">Курсовой проект</option>
+        <option value="0">Нет</option>
+    </select>
+    <br />
+    <br />
+    @Html.TextBox("chasiDisciplini", "", new {@onchange = "changeQ(this,300)", style = "width:50px;text-transform: uppercase;",  placeholder = "Часы" });
+    <br />
+    <br />
+    <input type="submit" value="Добавить дисциплину" />
+
+}

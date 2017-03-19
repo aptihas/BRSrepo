@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "SpisokStudentov";
+    string GruppName = ViewBag.GruppName;
+}
+
+<div class="ssilki">
+    <p>@Html.ActionLink("Личный кабинет", "MainPanel", "Admin")</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>@Html.ActionLink("Панель администратора", "AdminPanel", "Admin")</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>@Html.ActionLink("Допуск студентов к сессии", "SpisokGrupp", "Dopusk")</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>@GruppName</p>
+</div>
+     <div id="fixed_con"></div>
+    @if(ViewBag.Message=="ok")
+    {
+        <script type="text/javascript">
+            createInfoBlock(3, false, "Изменения сохранены");
+        </script>
+    }
+@using (Html.BeginForm("SpisokStudentov", "Dopusk", FormMethod.Post))
+{
+    <br />
+    <table class="jurnalTable">
+
+        <tr>
+            <td>№П/П</td>
+            <td>ФИО Студента</td>
+            <td>Допушен к сессии</td>
+        </tr>
+        @{
+    int i = 1;
+        }
+        @foreach (BRSGSTOU.Models.tableStudents s in ViewBag.Students)
+        {
+            int StudentID = s.ID;
+            <tr>
+                <td style="min-width:30px;">@i</td>
+                <td style="text-align: left;min-width:250px;">@s.Name</td>
+                <td style="max-width:60px;">@if (s.DopuskKSessii == 1)
+                    {
+                    @Html.CheckBox(StudentID.ToString(), true, new { @class = "squaredOne" })
+                    }
+                    else
+                    {
+                    @Html.CheckBox(StudentID.ToString(), false, new { @class = "squaredOne" })
+                    }
+                </td>
+            </tr>
+                    i++;
+        }
+
+    </table>
+    
+        string GruppID = ViewBag.GruppID.ToString();
+        string Facultet_ID = ViewBag.Facultet_ID.ToString();
+    @Html.Hidden("Grupp_ID", GruppID)
+    @Html.Hidden("Facultet_ID", Facultet_ID)
+
+    <input type="submit" value="Сохранить" style="margin-top: 20px;" />
+}

@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Добавить студента";
+}
+
+<div class="ssilki">
+    <p>@Html.ActionLink("Личный кабинет", "MainPanel", "Admin")</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>@Html.ActionLink("Панель администратора", "AdminPanel", "Admin")</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>Добавление студента</p>
+</div>
+     <div id="fixed_con"></div>
+    @if(ViewBag.Message=="ok")
+    {
+        <script type="text/javascript">
+            createInfoBlock(3, false, "Студент добавлен");
+        </script>
+    }
+
+1. Выберите группу, в которую добавляется студент.<br />
+2. Введите номер зачетной книжки студента.<br />
+3. Введите ФИО студента.<br />
+4. Нажмите на кнопку "Добавить студента".
+<br /><br />
+
+@using( Html.BeginForm("AddStudent","Change",FormMethod.Post))
+{
+ 
+    <select name="idGruppi">
+        @foreach(BRSGSTOU.Models.GruppaModel g in  ViewBag.Grupps)
+        {
+          <option value="@g.ID">@g.Gruppa</option>
+        }
+    </select>
+    @Html.TextBox("NomerZachetki", "", new {placeholder="Номер зачетки",style="margin-right:5px;text-transform: uppercase;"});
+    @Html.TextBox("studentFio", "", new { style = "width:400px;text-transform: uppercase;", placeholder = "ФИО студента" });
+    <input type="submit" value="Добавить студента"  />
+
+}

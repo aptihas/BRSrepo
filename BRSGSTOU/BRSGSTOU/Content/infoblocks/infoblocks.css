@@ -1,0 +1,25 @@
+/*
+/*	Created by Dzhamiev Nur-Magomed, Vargo Vinch
+/*	http://vargovinch.com/
+/*	2015, All Right Reserved
+/*	using jQuery
+*/
+
+div#fixed_con{
+	height:100px;
+	position: fixed;
+	float:right;
+	right:25px;
+	bottom:0;
+	padding-bottom:25px;
+}
+
+div.info{
+    color:white !important;
+    font-size:14pt;
+    margin:3px;
+	background-color:#5D6BB3;
+    padding:3px;
+    text-align:center;
+	display:none;
+}

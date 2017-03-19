@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Выбор дисциплины";
+    string Facultet_ID = Request.QueryString.Get(0);
+    string Gruppa_ID = Request.QueryString.Get(1);
+    string FacultetName = ViewBag.Dannie[0];
+    }
+
+<div class="ssilki">
+
+     <p>@Html.ActionLink("Факультеты","ViborFaculteta","Student")</p>
+     <img class="slesh" src="../../Content/slesh.png" />
+     <p>@Html.ActionLink(@FacultetName, "ViborGruppi", "Student", new {Facultet=Facultet_ID},null)</p>
+     <img class="slesh" src="../../Content/slesh.png" />
+     <p>@ViewBag.Dannie[1]</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+     <p>Выберите дисциплину:</p>
+</div>
+
+
+
+<p>@Html.ActionLink("Баллы по всем дисциплинам", "BalliPoVsemPredmetam", "Student", new {Facultet=Facultet_ID,Gruppa=Gruppa_ID}, new {@class = "fonSsilki"})</p>
+<hr class="styletwo" />
+<div class="ssilki">
+    <p>Список дисциплин группы @ViewBag.Dannie[1]</p>
+</div>
+@{
+    foreach (var d in ViewBag.Disciplini)
+    {
+        string Disciplina = d.Name.ToString();
+        string Disciplina_ID = d.ID.ToString();
+     <p>@Html.ActionLink(Disciplina, "PokazatVedomost", "Student", new {Facultet=Facultet_ID, Gruppa = Gruppa_ID,Disciplina=Disciplina_ID}, new { @class = "fonSsilki" })</p>
+      <hr class="styletwo" />
+    }
+}

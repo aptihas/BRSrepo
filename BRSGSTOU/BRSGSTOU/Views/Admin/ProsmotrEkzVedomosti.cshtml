@@ -1,0 +1,261 @@
+﻿@{
+    Layout = null;   
+    <link href="@Url.Content("~/Content/Style.css")" rel="stylesheet" type="text/css" />
+}
+
+@{
+    string[] Mesiaci = {"января","февраля", "марта","апреля","мая", "июня","июля","августа","сентября","октября","ноября","декабря" };
+    string chislomesecGod = "\"" + DateTime.Now.Day.ToString() + "\" " + Mesiaci[DateTime.Now.Month-1] + " " + DateTime.Now.Year.ToString() + " г.";
+    int godServera = int.Parse(DateTime.Now.Year.ToString().Substring(2,2));
+    string sss = ViewBag.Dannie[1].Substring(ViewBag.Dannie[1].Trim().IndexOf("-"), 2);
+    int godGruppi = int.Parse(ViewBag.Dannie[1].Substring(ViewBag.Dannie[1].Trim().IndexOf("-")+1, 2));
+    int semestri = (godServera - godGruppi) * 2;
+    string obrazovatelniyGod = "";
+    if (DateTime.Now.Month >= 9)
+    {
+        obrazovatelniyGod = DateTime.Now.Year.ToString() + "/" + (DateTime.Now.Year + 1).ToString();
+    }
+    else
+    {
+        obrazovatelniyGod = (DateTime.Now.Year - 1).ToString() + "/" + DateTime.Now.Year.ToString();
+    }
+
+    string textVvedomostOSemestre = "";
+    if ((DateTime.Now.Month.ToString() == "1") | (DateTime.Now.Month.ToString() == "2") | (DateTime.Now.Month.ToString() == "3") | (DateTime.Now.Month.ToString() == "4") | (DateTime.Now.Month.ToString() == "5" | (DateTime.Now.Month.ToString() == "6")))
+    {
+        textVvedomostOSemestre = "весенний (" + semestri + ")";
+
+    }
+    else
+    {
+        if (semestri == 0)
+        {
+            textVvedomostOSemestre = "осенний (1)";
+        }
+        else
+        {
+            textVvedomostOSemestre = "осенний (" + (semestri + 1) + ")";
+        }
+    }
+    string Facultet_ID = Request.QueryString.Get(0);
+    string Gruppa_ID = Request.QueryString.Get(1);
+    string Disciplina_ID = Request.QueryString.Get(2);
+    string Vedmomost = Request.QueryString.Get(3);
+    string FacultetName = ViewBag.Dannie[0];
+    string GruppaName = ViewBag.Dannie[1];
+    string DisciplinaName = ViewBag.Dannie[2];
+    int Otchetnost = int.Parse(ViewBag.Dannie[3]);
+    int KR_KP = int.Parse(ViewBag.Dannie[4]);
+    int ChasiDisciplini = int.Parse(ViewBag.Dannie[5]);
+    string prepodName = ViewBag.Dannie[6];
+
+    string nazvanieVedomosti = "";
+    string vidOtchetnosti = "";
+    if(Vedmomost=="1" || Vedmomost=="2")
+    {
+        if(Otchetnost==1)
+        {
+            nazvanieVedomosti = "ЭКЗАМЕНАЦИОННАЯ ВЕДОМОСТЬ";
+            vidOtchetnosti = "экзамен";
+        }
+        else if (Otchetnost >= 2)
+        {
+            nazvanieVedomosti = "ЗАЧЕТНАЯ ВЕДОМОСТЬ";
+            vidOtchetnosti = "зачет";
+        }
+    }
+    else
+    {
+        if(Vedmomost=="3")
+        {
+            nazvanieVedomosti = "КУРСОВАЯ РАБОТА";
+            vidOtchetnosti = "КР";
+        } 
+        else if(Vedmomost=="4")
+        {
+            nazvanieVedomosti = "КУРСОВОЙ ПРОЕКТ";
+            vidOtchetnosti = "КП";
+        }
+    }
+}
+<div class="shirinaVedEkzam">
+    <div style="font-weight:600; text-align:center;font-size:14pt;">ГРОЗНЕНСКИЙ ГОСУДАРСТВЕННЫЙ НЕФТЯНОЙ ТЕХНИЧЕСКИЙ УНИВЕРСИТЕТ</div>
+    <div style="font-weight:600; text-align:center;font-size:14pt;">имени академика М.Д. Миллионщикова</div>
+    <div style="height:20px;"></div>
+    <div style="text-align:left;font-size:14px;padding-left:650px;">Список группы утверждаю</div>
+    <div style="text-align:left;font-size:14px;padding-left:650px;">Декан факультета</div>
+    <div style="text-align:left;font-size:14px;padding-left:650px;">_______________________</div>
+    <div style="text-align:left;font-size:14px;padding-left:650px;">@chislomesecGod</div>
+    <div style="height:20px;"></div>
+    <div style="height:30px;"></div>
+    <div style="font-weight:600; text-align:center;font-size:14pt;"> @nazvanieVedomosti.ToUpper() №</div>
+    <div style="height:30px;"></div>
+
+
+        <div style="text-align:left;">
+            <div>Семестр @textVvedomostOSemestre</div>
+            <div>Факультет @FacultetName</div>
+            <div>Группа @GruppaName</div>
+            <div>Дисциплина @DisciplinaName</div>
+            <div>Общее количество аудиторных часов по дисциплине за семестр @ChasiDisciplini</div>
+            <div>Фамилия, имя, отчество преподавателей</div>
+            <div style="border-bottom:1px solid black; width:848px; text-align:center;">@prepodName</div>
+
+            <div style="height:20px;"></div>
+        </div> 
+        <table class="StilTableEkzam">
+
+            <tr class="TemnayaPolosa">
+                <td style="height:50px; width:30px;">№</td>
+                <td style="width:300px;">Фамилия, имя, отчество</td>
+                <td style="width:70px;">№ зачетной книжки</td>
+                <td style="width:70px;">Баллы за семестр</td>
+                <td style="width:70px;">Баллы за @vidOtchetnosti</td>
+                <td style="width:70px;">Итоговые баллы</td>
+                <td style="width:70px;">Отметка</td>
+                <td style="width:70px;">Дата сдачи</td>
+                <td style="width:70px;">Подпись</td>
+            </tr>
+            @{int i = 1, s = 1;}
+            @foreach (BRSGSTOU.Models.Vedomost b in ViewBag.Vedomost)
+            {
+                <tr>
+                    @if(b.DopuskKSessii==1)
+                    {
+                        <td>@i</td>
+                        <td style="text-align: left; padding:3px;">@b.StudentName</td>
+                        <td>@b.NomerZachetki</td>
+                        <td>
+                            @if(Vedmomost=="1" || Vedmomost=="2")
+                            {
+                                @b.Itog
+                            }
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            @if (vidOtchetnosti == "зачет" && b.Itog > 40)
+                            {
+                                <div>зачтено</div>
+                            }
+                        </td>
+                        <td></td>
+                        <td></td>
+                     }
+                    else
+                    {
+                        <td>@i</td>
+                        <td style="text-align: left; padding:3px;">@b.StudentName</td>
+                        <td>@b.NomerZachetki</td>
+                        <td  colspan="6">НЕДОПУСК</td>
+
+                    }
+                </tr>
+                i++;
+                s++;
+            }
+    
+        </table>
+    @if (s > 26)
+    {
+       <div style="page-break-after:always"></div>
+    }
+    else
+    {
+    
+    }
+    <div style="text-align:left;">
+        <div style="height:20px;"></div>
+        <div><b>Примечание: </b>экзамен/зачет выставляется в соответствии с баллами, указанными в итоговом рейтинге:</div>
+        <div style="height:20px;"></div>
+    </div> 
+
+    <table class="tablePrimechanie">
+        <tr>
+            <td style="font-weight:600; width:250px; font-style:italic;">Итоговый рейтинг (в баллах)</td>
+            <td style="font-weight:600; width:250px; font-style:italic;">Итоговая оценка за экзамен</td>
+        </tr>
+        <tr>
+            <td>81 – 100 баллов</td>
+            <td>«Отлично»</td>
+        </tr>
+        <tr>
+            <td>61 - 80 баллов</td>
+            <td>«Хорошо»</td>
+        </tr>
+        <tr>
+            <td>41 - 60 баллов</td>
+            <td>«Удовлетворительно»</td>
+        </tr>
+        <tr>
+            <td>менее 40 баллов</td>
+            <td>«Неудовлетворительно»</td>
+        </tr>
+    </table>
+    <div style="height:20px;"></div>
+    @if (s >=18 && s< 30)
+    {
+        <div style="page-break-after:always"></div>
+    }
+
+    <div style="margin-left:50px;">Результаты сдачи экзамена/зачета:</div>
+    <table class="tableItogovEkamVed">
+        <tr>
+            <td>Отлично</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Хорошо</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Удовлетворительно</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Неудовлетворительно</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Неявка</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td style="font-weight:600;" >Итого</td>
+            <td></td>
+        </tr>
+    </table>
+    @if (s>=1 && s <= 17)
+    {
+        <div style="page-break-after:always"></div>
+    }
+    else if (s >=18 && s< 45)
+    {
+            
+    }
+    else 
+    {
+        <div style="page-break-after:always"></div>
+    }
+    <div style="height:20px;"></div>
+    <div style="margin-left:50px;">Ведомость получил</div>
+    <div style="height:20px;"></div>
+    <div style="margin-left:50px;">«_____»________________201__г.</div>
+    <div style="height:20px;"></div>
+    <div style="margin-left:50px;">Ведомость возвращена</div>
+    <div style="height:20px;"></div>
+    <div style="margin-left:50px;">«_____» ________________201__г.</div>
+    <div style="height:20px;"></div>
+    <div style="margin-left:50px;">Методист______________________________________</div>
+    <div style="height:20px;"></div>
+    <div style="height:20px;"></div>
+    <div style="font-weight:600; text-align:center;font-size:14pt;">Указания по оформлению ведомости</div>
+
+    <div style="text-align:left;">
+        <div>1.Ведомости сдаются в деканат только преподавателями, которые принимали отчетность. Передача их через других лиц не допускается.</div>
+        <div style="height:20px;"></div>
+        <div style="height:20px;"></div>
+        <div>2. Исправления не допускаются. В исключительных случаях исправления должны быть оговорены подписью преподавателя («исправленному верить», подпись).</div>
+        </div> 
+
+</div>

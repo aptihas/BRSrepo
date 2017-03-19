@@ -1,0 +1,244 @@
+﻿
+@{
+    ViewBag.Title = "Аттестационная ведомость";
+    string Facultet_ID = "";
+    string Gruppa_ID = "";
+    string Disciplina_ID = "";
+    string Prepod_ID = "";
+    string FacultetName = "";
+    string GruppaName = "";
+
+    try
+    {
+        Facultet_ID = Request.QueryString.Get(0);
+        Gruppa_ID = Request.QueryString.Get(1);
+        Disciplina_ID = Request.QueryString.Get(2);
+        FacultetName = ViewBag.Dannie[0];
+        GruppaName = ViewBag.Dannie[1];
+
+    }
+    catch
+    {
+        Facultet_ID = ViewBag.Dannie[0];
+        Gruppa_ID = ViewBag.Dannie[1];
+        Disciplina_ID = ViewBag.Dannie[2];
+        Prepod_ID = ViewBag.Dannie[3];
+    }
+
+    int godServera = int.Parse(DateTime.Now.Year.ToString().Substring(DateTime.Now.Year.ToString().Length - 2));
+    int godGruppi = int.Parse(ViewBag.Dannie[1].Substring(ViewBag.Dannie[1].Trim().IndexOf("-") + 1, 2));
+    int semestri = (godServera - godGruppi) * 2;
+    string obrazovatelniyGod = "";
+    if (DateTime.Now.Month >= 9)
+    {
+        obrazovatelniyGod = DateTime.Now.Year.ToString() + "/" + (DateTime.Now.Year + 1).ToString();
+    }
+    else
+    {
+        obrazovatelniyGod = (DateTime.Now.Year - 1).ToString() + "/" + DateTime.Now.Year.ToString();
+    }
+
+    string textVvedomostOSemestre = "";
+    if ((DateTime.Now.Month.ToString() == "1") | (DateTime.Now.Month.ToString() == "2") | (DateTime.Now.Month.ToString() == "3") | (DateTime.Now.Month.ToString() == "4") | (DateTime.Now.Month.ToString() == "5" | (DateTime.Now.Month.ToString() == "6")))
+    {
+        textVvedomostOSemestre = "весеннем (" + semestri + ")";
+
+    }
+    else
+    {
+        if (semestri == 0)
+        {
+            textVvedomostOSemestre = "осеннем (1)";
+        }
+        else
+        {
+            textVvedomostOSemestre = "осеннем (" + (semestri + 1) + ")";
+        }
+    }
+    int tek = 15, rub = 20;
+    if (ViewBag.DiscipliniVM.Contains(ViewBag.Dannie[2]))
+    {
+        tek = 10;
+        rub = 25;
+    }
+    
+}
+
+@{
+    string gruppaName = ViewBag.Dannie[1];
+    }
+<div class="ssilki">
+    <p>@Html.ActionLink("Личный кабинет", "TeacherCabinet", "Teacher")</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>@Html.ActionLink("Атт. ведомости", "TeacherGrupps", "Teacher")</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>@Html.ActionLink(gruppaName, "GruppsSubject", "Teacher",new { Gruppa = Gruppa_ID }, null)</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>Ведомость по дисциплине "@ViewBag.Dannie[2]"</p>
+</div>
+
+<hr class="styletwo" />
+@Html.ActionLink("Перейти к журналу", "JournalForSubjectofGrupp", "Journal", new {Facultet=Facultet_ID,Gruppa=Gruppa_ID, Disciplina=Disciplina_ID,Prepod=ViewBag.Prepod_ID}, new {@class="sohranit",@style="font-size: 15px;" })
+@Html.ActionLink("Сохранить ведомость", "PDF", "Teacher", new {Facultet=Facultet_ID,Gruppa=Gruppa_ID, Disciplina=Disciplina_ID}, new {@class="sohranit",@style="font-size: 15px;",@onclick="$('#center_loader').show();" })
+<hr class="styletwo" />
+<div style="text-align: center; clear: left;">
+    <div style="font-weight: 600; padding: 3px;">АТТЕСТАЦИОННАЯ ВЕДОМОСТЬ</div>
+    <div style="padding: 3px;">В <b>@textVvedomostOSemestre</b> семестре @obrazovatelniyGod учебного года факультета @ViewBag.Dannie[0]</div>
+    <div style="padding: 3px;">группы <b>@ViewBag.Dannie[1]</b> по дисциплине «@ViewBag.Dannie[2]» (@ViewBag.VidOtchetnosti)</div>
+</div>
+<div id="center_loader">
+    <img src="../../Content/loader.gif" / width="40" height="40">
+</div>
+<table class="StilTable" id="table">
+   <tr>
+        <td rowspan="3" style="width: 40px; text-align: center;"></td>
+        <td rowspan="3" style=" padding: 5px !important;"></td>
+        <td colspan="3" style="font-weight: 600; text-align: center;border-right:2px solid; border-left:2px solid;">1-ая аттестация</td>
+        <td colspan="4" style="font-weight: 600; text-align: center;border-right:2px solid;">2-я аттестация</td>
+        <td rowspan="3" style="font-style: italic;text-align: center;">Досдача<br /> (до 20 баллов)</td>
+        <td rowspan="3" style="font-style: italic;text-align: center;">Премиальные<br /> (до 20 баллов)</td>
+        <td rowspan="3" style="font-style: italic; font-weight: 600;  text-align: center;">Итого<br>
+            <span style="font-size: 1em;">(баллы)</span></td>
+
+    </tr>
+    <tr>
+        <td style="text-align: center; vertical-align: middle; height: 30px; border-left:2px solid;">Посещаем.</td>
+        <td >Текущая атт.</td>
+        <td style="border-right:2px solid;">Рубежная атт.</td>
+        <td>Посещаем.</td>
+        <td>Текущая атт.</td>
+        <td>Рубежная атт.</td>
+        <td style=" border-right:2px solid;">Самост. работа</td>
+    </tr>
+    <tr>
+        <td style="font-style: italic; text-align: center; height: 40px; vertical-align: middle; border-left:2px solid;">Баллы (0-5)</td>
+        <td style="font-style: italic; text-align: center;">Баллы (0-@tek)</td>
+        <td style="font-style: italic; text-align: center;border-right:2px solid;">Баллы (0-@rub)</td>
+        <td style="font-style: italic; text-align: center;">Баллы (0-10)</td>
+        <td style="font-style: italic; text-align: center;">Баллы (0-@tek)</td>
+        <td style="font-style: italic; text-align: center;">Баллы (0-@rub)</td>
+        <td style="font-style: italic; text-align: center; border-right:2px solid;">Баллы (0-15)</td>
+    </tr>
+    <tr style="border:2px solid;background:rgb(172, 172, 172);">
+        <td>№</td>
+        <td>1</td>
+        <td style="border-left:2px solid;">2</td>
+        <td>3</td>
+        <td style="border-right:2px solid;">4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td style="border-right:2px solid;">8</td>
+        <td>9</td>
+        <td>10</td>
+        <td>11</td>
+    </tr>
+    @{
+        string path = Server.MapPath(Url.Content("/Views/Content/IzmenitVedomost.cshtml"));
+    }
+    <script type="text/javascript">
+        function changeQ(e, x) {
+            if ((e.value >= 0) & (e.value <= x)) {
+                e.value = e.value.replace(/^0+/, '');
+            }
+            else if (e.value > x) {
+                e.value = parseInt(x);
+            }
+            else {
+                alert("Неверный формат!")
+                e.value = 0;
+            }
+        }
+
+        $(document).ready(function () {
+            $("input.student-auto-update").blur(function () {
+                $('input').attr('disabled', 'true');
+                $('#center_loader').show();
+                var editedInput = $(this);
+                editedTR = editedInput.parent().parent();
+                Facultet_ID = '@Facultet_ID';
+                Gruppa_ID = '@Gruppa_ID';
+                Disciplina_ID = '@Disciplina_ID';
+                studentID = editedInput.parent().parent().attr("id");
+                paramName = editedInput.attr("name");
+                newVal = editedInput.val();
+                totalScoreTD = editedTR.find('td.total-score');
+                //console.log("student: " + studentID + "; newVal: " + newVal + "; param: " + paramName);
+                //console.log("totalScoreTD: " + parseInt(totalScoreTD.html()));
+                $.ajax({
+                    method: "POST",
+                    url: "UpdateStudValue",
+                    data: { Facultet_ID: Facultet_ID, Gruppa_ID: Gruppa_ID, Disciplina_ID: Disciplina_ID, vidBallov: paramName, student: studentID, value: newVal }
+                }).done(function (msg) {
+                    //console.log(msg);
+                    var totalSum = 0, nt;
+                    editedTR.find("input").each(function (index) {
+                        nt = parseInt($(this).val());
+                        if (!isNaN(nt)) totalSum += nt;
+                    });
+                    totalScoreTD.html(totalSum);
+                });
+            });
+        });
+
+        //------
+    </script>
+
+    @{int i = 1;
+      string idButton = "sohranit" + i.ToString();
+      string nagatKnopku = "document.getElementById(" + idButton + ").click();";
+    }
+    @foreach (BRSGSTOU.Models.Vedomost b in ViewBag.Vedomost)
+    {
+        <tr id="@b.Student_ID" >
+
+
+            <td>@i</td>
+            <td style="text-align: left;border-right:2px solid;">
+                @b.StudentName
+            </td>
+            
+
+            @if (File.Exists(Server.MapPath(Url.Content("/Models/AT.cs"))))
+            {
+                <td>@b.Pos1</td>
+                <td>@Html.TextBox("Tek1", b.Tek1, new { @onchange = "changeQ(this,"+tek+")", @class = "student-auto-update" })</td>
+                <td style="border-right:2px solid;">@Html.TextBox("Rub1", b.Rub1, new { @onchange = "changeQ(this,"+rub+")", @class = "student-auto-update" })</td>
+                <td>@b.Pos2</td>
+                <td>@b.Tek2</td>
+                <td>@b.Rub2</td>
+                <td style="border-right:2px solid;">@b.Samost</td>
+                <td>@b.Dosdacha</td>
+                <td>@b.Premial</td>
+            }
+            else if (File.Exists(Server.MapPath(Url.Content("/Models/ATT.cs"))))
+            {
+                <td>@b.Pos1</td>
+                <td>@b.Tek1</td>
+                <td  style="border-right:2px solid;">@b.Rub1</td>
+                <td>@b.Pos2</td>
+                <td>@Html.TextBox("Tek2", b.Tek2, new { @onchange = "changeQ(this,"+tek+")", @class = "student-auto-update" })</td>
+                <td>@Html.TextBox("Rub2", b.Rub2, new { @onchange = "changeQ(this,"+rub+")", @class = "student-auto-update" })</td>
+                <td style="border-right:2px solid;">@Html.TextBox("Samost", b.Samost, new { @onchange = "changeQ(this,15)", @class = "student-auto-update" })</td>
+                <td>@Html.TextBox("Dosdacha", b.Dosdacha, new { @onchange = "changeQ(this,20)", @class = "student-auto-update" })</td>
+                <td>@Html.TextBox("Premial", b.Premial, new { @onchange = "changeQ(this,20)", @class = "student-auto-update" })</td>
+            }
+            else
+            {
+                <td>@b.Pos1</td>
+                <td>@b.Tek1</td>
+                <td style="border-right:2px solid;">@b.Rub1</td>
+                <td>@b.Pos2</td>
+                <td>@b.Tek2</td>
+                <td>@b.Rub2</td>
+                <td style="border-right:2px solid;">@b.Samost</td>
+                <td>@b.Dosdacha</td>
+                <td>@b.Premial</td>
+            }
+            <td class="total-score">
+                @b.Itog
+            </td>
+        </tr>
+            i++;
+    }
+</table>

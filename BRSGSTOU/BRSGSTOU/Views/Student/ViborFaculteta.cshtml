@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Выбор факультета";
+}
+
+<div class="ssilki">
+    <p>Выберите факультет:</p>
+</div>
+
+@{
+    foreach( var b in ViewBag.Faculteti)
+    {
+        string Facultet = b.Name.ToString();
+        int Facultet_ID = b.ID;
+     <p>@Html.ActionLink(Facultet, "ViborGruppi", "Student", new {Facultet = Facultet_ID }, new { @class = "fonSsilki" })</p>
+     <hr class="styletwo" />
+    }
+}

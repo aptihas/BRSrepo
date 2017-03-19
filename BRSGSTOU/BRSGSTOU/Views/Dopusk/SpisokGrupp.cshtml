@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Выбор группы";
+}
+
+<div class="ssilki">
+    <p>@Html.ActionLink("Личный кабинет", "MainPanel", "Admin")</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>@Html.ActionLink("Панель администратора", "AdminPanel", "Admin")</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>Допуск студентов к сессии</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>Выберите группу</p>
+</div>
+@{string Gruppa = ""; string gruppChar = "";}
+@{
+    foreach (BRSGSTOU.Models.tableGrupp g in ViewBag.GruppList)
+    {
+        Gruppa = g.Name;
+        if (gruppChar == "" || gruppChar == Gruppa.Substring(0, Gruppa.IndexOf("-")))
+        {
+            <p style="float:left;">@Html.ActionLink(Gruppa, "SpisokStudentov", "Dopusk", new { Facultet_ID = g.IDFacultet, Gruppa = g.ID }, new { @class = "fonSsilki" })</p>
+        }
+        else
+        {
+            <hr class="styletwo" />
+            <p style="float:left;">@Html.ActionLink(Gruppa, "SpisokStudentov", "Dopusk", new { Facultet_ID = g.IDFacultet, Gruppa = g.ID }, new { @class = "fonSsilki" })</p>
+        }
+        gruppChar = Gruppa.Substring(0, Gruppa.IndexOf("-"));
+    }
+}
+<br /><br /><br />

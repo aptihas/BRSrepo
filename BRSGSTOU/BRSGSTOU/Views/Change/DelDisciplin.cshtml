@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Удалить дисциплину";
+}
+
+<div class="ssilki">
+    <p>@Html.ActionLink("Личный кабинет", "MainPanel", "Admin")</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>@Html.ActionLink("Панель администратора", "AdminPanel", "Admin")</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>Изменить преподавателя дисциплины</p>
+</div>
+     <div id="fixed_con"></div>
+    @if(ViewBag.Message=="ok")
+    {
+        <script type="text/javascript">
+            createInfoBlock(3, false, "Дисциплина удалена");
+        </script>
+    }
+1. Выберите из списка дисциплину группы, которую необходимо удалить<br />
+2. Нажмите кнопку "Удалить дисциплину".<br />
+<br /><br />
+
+@using (Html.BeginForm("DelDisciplin", "Change", FormMethod.Post))
+{
+    string massivZnach;
+    <select size="20" name="massivZnach">
+        @foreach (BRSGSTOU.Models.TeachersData pd in ViewBag.PrinadlegnostDisciplin)
+        {
+            massivZnach = pd.Disciplina_ID + "," + pd.Gruppa_ID;
+          <option selected value="@massivZnach">@pd.Gruppa - @pd.Disciplina</option>
+        }
+    </select>
+    
+    <br />
+    <br />
+    <input type="submit" value="Удалить дисциплину"  />
+}

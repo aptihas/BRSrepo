@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "Выбор группы";
+}
+
+<div class="ssilki">
+    <p>@Html.ActionLink("Личный кабинет", "MainPanel", "Admin")</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>@Html.ActionLink("Ведомости", "Vedomosti", "Admin")</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>Выберите группу</p>
+</div>
+<div id="center_loader">
+    <img src="../../Content/loader.gif" / width="40" height="40">
+</div>
+@{string Gruppa = ""; string gruppChar = "";}
+@{
+    if (Request.QueryString.Get(1) == "ATT")
+    {
+        foreach (BRSGSTOU.Models.GruppaModel g in ViewBag.GruppList)
+        {
+            Gruppa = g.Gruppa;
+            if (gruppChar == "" || gruppChar == Gruppa.Substring(0, Gruppa.IndexOf("-")))
+            {
+                <p style="float:left";>@Html.ActionLink(Gruppa, "SubjectList", "Admin", new { Facultet_ID = g.Facultet_ID, Gruppa = g.ID, Vedomost = 1, VidVedomost = "ATT" }, new { @class = "fonSsilki" })</p>
+            }
+            else
+            {
+                <hr class="styletwo"  />
+                <p style="float:left;">@Html.ActionLink(Gruppa, "SubjectList", "Admin", new { Facultet_ID = g.Facultet_ID, Gruppa = g.ID, Vedomost = 1, VidVedomost = "ATT" }, new { @class = "fonSsilki" })</p>
+            }
+            gruppChar = Gruppa.Substring(0, Gruppa.IndexOf("-"));
+        }
+    }
+    else if (Request.QueryString.Get(1) == "EKZ")
+    {
+        foreach (BRSGSTOU.Models.GruppaModel g in ViewBag.GruppList)
+        {
+            Gruppa = g.Gruppa;
+
+            if (gruppChar == "" || gruppChar == Gruppa.Substring(0, Gruppa.IndexOf("-")))
+            {
+                <p style="float:left";>@Html.ActionLink(Gruppa, "SubjectList", "Admin", new { Facultet_ID = g.Facultet_ID, Gruppa = g.ID, Vedomost = 2, VidVedomost = "EKZ" }, new { @class = "fonSsilki" })</p>
+            }
+            else
+            {
+                <hr class="styletwo"  />
+                <p style="float:left;">@Html.ActionLink(Gruppa, "SubjectList", "Admin", new { Facultet_ID = g.Facultet_ID, Gruppa = g.ID, Vedomost = 2, VidVedomost = "EKZ" }, new { @class = "fonSsilki" })</p>
+            }
+            gruppChar = Gruppa.Substring(0, Gruppa.IndexOf("-"));
+        }
+    }
+    else if (Request.QueryString.Get(1) == "SVODJOURNAL")
+    {
+                foreach (BRSGSTOU.Models.GruppaModel g in ViewBag.GruppList)
+        {
+            Gruppa = g.Gruppa;
+
+            if (gruppChar == "" || gruppChar == Gruppa.Substring(0, Gruppa.IndexOf("-")))
+            {
+                <p style="float:left";>@Html.ActionLink(Gruppa, "PDFSvodJournal", "Admin", new { Facultet = g.Facultet_ID, Gruppa = g.ID}, new { @class = "fonSsilki", @onclick="$('#center_loader').show();" })</p>
+            }
+            else
+            {
+                <hr class="styletwo"  />
+                <p style="float:left;">@Html.ActionLink(Gruppa, "PDFSvodJournal", "Admin", new { Facultet = g.Facultet_ID, Gruppa = g.ID }, new { @class = "fonSsilki", @onclick="$('#center_loader').show();" })</p>
+            }
+            gruppChar = Gruppa.Substring(0, Gruppa.IndexOf("-"));
+        }
+    }
+}
+<br /><br /><br />
+

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="62fcf6ca31a0400e9f319bf8e844eff5" Name="Диаграмма1" ZoomLevel="89">
+        <EntityTypeShape EntityType="dbBRSModel.tableAdmins" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbBRSModel.tableBalli" Width="1.5" PointX="7.5" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbBRSModel.tableDisciplin" Width="1.5" PointX="3" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbBRSModel.tableFacultet" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbBRSModel.tableGrupp" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbBRSModel.tablePoseshenie" Width="1.5" PointX="7.5" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbBRSModel.tablePrepods" Width="1.5" PointX="3" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbBRSModel.tablePrinadlegnistDisciplin" Width="1.5" PointX="5.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbBRSModel.tableRoles" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbBRSModel.tableZanyatiy" Width="1.5" PointX="5.25" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbBRSModel.teachersAccounts" Width="1.5" PointX="8.25" PointY="12.25" IsExpanded="true" />
+        <AssociationConnector Association="dbBRSModel.FK_tableAdmins_tableAdmins" ManuallyRouted="false" />
+        <AssociationConnector Association="dbBRSModel.FK_tableAdmins_tableFacultet" ManuallyRouted="false" />
+        <AssociationConnector Association="dbBRSModel.FK_tableBalli_tableDisciplin" ManuallyRouted="false" />
+        <AssociationConnector Association="dbBRSModel.FK_tableBalli_tableGrupp" ManuallyRouted="false" />
+        <AssociationConnector Association="dbBRSModel.FK_tableBalli_tablePrepods" ManuallyRouted="false" />
+        <AssociationConnector Association="dbBRSModel.FK_tablePrinadlegnistDisciplin_tableDisciplin" ManuallyRouted="false" />
+        <AssociationConnector Association="dbBRSModel.FK_tableZanyatiy_tableDisciplin" ManuallyRouted="false" />
+        <AssociationConnector Association="dbBRSModel.FK_tableGrupp_tableFacultet" ManuallyRouted="false" />
+        <AssociationConnector Association="dbBRSModel.FK_tablePrinadlegnistDisciplin_tableFacultet" ManuallyRouted="false" />
+        <AssociationConnector Association="dbBRSModel.FK_tablePrinadlegnistDisciplin_tableGrupp" ManuallyRouted="false" />
+        <AssociationConnector Association="dbBRSModel.FK_tableZanyatiy_tableGrupp" ManuallyRouted="false" />
+        <AssociationConnector Association="dbBRSModel.FK_tablePoseshenie_tableZanyatiy" ManuallyRouted="false" />
+        <AssociationConnector Association="dbBRSModel.FK_tableZanyatiy_tablePrepods" ManuallyRouted="false" />
+        <AssociationConnector Association="dbBRSModel.FK_teachersAccounts_tablePrepods" ManuallyRouted="false" />
+        <AssociationConnector Association="dbBRSModel.FK_teachersAccounts_tableRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="dbBRSModel.tableProfile" Width="1.5" PointX="8.3703416587646764" PointY="6.9562393906322493" />
+        <AssociationConnector Association="dbBRSModel.FK_tableGrupp_tableProfile" />
+        <EntityTypeShape EntityType="dbBRSModel.tableStudents" Width="1.5" PointX="9.6570637699482322" PointY="26.633885485415295" />
+        <AssociationConnector Association="dbBRSModel.FK_tableBalli_tableStudents" />
+        <AssociationConnector Association="dbBRSModel.FK_tableStudents_tableGrupp" />
+        <AssociationConnector Association="dbBRSModel.FK_tablePoseshenie_tableStudents" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

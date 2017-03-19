@@ -1,0 +1,165 @@
+﻿@{
+    string Facultet_ID = "";
+    string Gruppa_ID = "";
+    string Disciplina_ID = "";
+    string Prepod_ID = "";
+    ViewBag.Title = "Учет студентов";
+    try
+    {
+        Facultet_ID = Request.QueryString.Get(0);
+        Gruppa_ID = Request.QueryString.Get(1);
+        Disciplina_ID = Request.QueryString.Get(2);
+        Prepod_ID = Request.QueryString.Get(3);
+    }
+    catch
+    {
+        Facultet_ID = ViewBag.Dannie[0];
+        Gruppa_ID = ViewBag.Dannie[1];
+        Disciplina_ID = ViewBag.Dannie[2];
+        Prepod_ID = ViewBag.Dannie[3];
+    }
+    BRSGSTOU.Models.dbBRSEntities contextDB = new BRSGSTOU.Models.dbBRSEntities();
+}
+
+@{
+    string GruppaName = ViewBag.GruppaName;
+    string PrepodName = ViewBag.PrepodName;
+    string SubjectName = ViewBag.SubjectName;
+}
+
+<script type="text/javascript">
+    $("div.rotate").hover(function () {
+        content = "Удалить";
+    });
+</script>
+
+<div class="ssilki">
+    <p>@Html.ActionLink("Личный кабинет", "TeacherCabinet", "Teacher")</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>@Html.ActionLink("Журнал преподавателя " + "\"" + PrepodName + "\"", "JournalGrupps", "Journal")</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>@Html.ActionLink(GruppaName, "JournalGruppsSubject", "Journal", new { Gruppa = Gruppa_ID }, null)</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>@SubjectName</p>
+</div>
+
+<hr class="styletwo" />
+@Html.ActionLink("Перейти к ведомости", "IzmenitVedomost", "Teacher", new { Facultet = Facultet_ID, Gruppa = Gruppa_ID, Disciplina = Disciplina_ID, Prepod = Prepod_ID }, new { @class = "sohranit", @style = "font-size: 15px;", @onclick = "$('#center_loader').show();" })
+<hr class="styletwo" />
+<div style="text-align: center; clear: left;">
+    <div style="font-weight: 600; padding: 3px; margin-bottom: 10px; margin-top: 10px;">Учет посещаемости студентов группы @GruppaName по дисциплине "@SubjectName"</div>
+</div>
+<div id="center_loader">
+    <img src="../../Content/loader.gif" width="40" height="40">
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var oldCell;
+        var oldText;
+        $("td.tdTime").hover(
+            function () {
+                oldCell = $(this).children(".rotate");
+                var cell = $(this).children(".rotate");
+                oldText = cell.text();
+                cell.text('Удалить!');
+            },
+            function () {
+                oldCell.text(oldText);
+            });
+    });
+
+    function deleteDay(tdObj) {
+        td = $(tdObj);
+        $('#center_loader').show();
+        var idZanyatiya = td.attr('id');
+        Facultet_ID = '@Facultet_ID';
+        Gruppa_ID = '@Gruppa_ID';
+        Disciplina_ID = '@Disciplina_ID';
+        Prepod_ID = '@Prepod_ID';
+        $.ajax({
+            method: "POST",
+            url: "DeleteDay",
+            data: { Facultet_ID: Facultet_ID, Gruppa_ID: Gruppa_ID, Disciplina_ID: Disciplina_ID, PrepodID: Prepod_ID, IDZanyatiya: idZanyatiya }
+        });
+    }
+</script>
+
+<table class="jurnalTable">
+    @using (Html.BeginForm("JournalForSubjectofGrupp", "Journal", FormMethod.Post, new { id = "jurnalForm" }))
+    {
+        <tr>
+            <td>№ П/П
+            </td>
+            <td>ФИО Студента
+            </td>
+            @foreach (BRSGSTOU.Models.tableZanyatiy z in ViewBag.ChisloZanyatiy)
+            {
+                if (Gruppa_ID == z.ID_Gruppi.ToString() && Disciplina_ID == z.ID_Disciplini.ToString())
+                {
+                
+                <td id="@z.ID" onclick="deleteDay(this)" class="tdTime" style="max-height:80px;padding-top:65px; padding-bottom:5px;">
+                    <div class="rotate">@z.Vremya.ToString("d")</div>
+                </td>
+                }
+            }
+            <td style="max-width: 160px;">
+                <input type="date" name="Vremya" value="@DateTime.Now.ToString("yyyy-MM-dd")" max="@DateTime.Now.ToString("yyyy-MM-dd")" min="@DateTime.Now.AddDays(-50).ToString("yyyy-MM-dd")" />
+            </td>
+        </tr>
+
+
+            int nomer = 1;
+            foreach (BRSGSTOU.Models.tableStudents s in ViewBag.Students)
+            {
+                string studID = s.ID.ToString();
+            
+        <tr>
+            <td style="min-width: 30px;">
+                @nomer
+            </td>
+
+            <td style="text-align: left; min-width: 230px;">
+                @s.Name
+            </td>
+            @{
+                var zanstud =
+                    from z in contextDB.tablePoseshenie
+                    where z.ID_Studenta == s.ID
+                    select z;
+            }
+            @foreach (BRSGSTOU.Models.tablePoseshenie z in zanstud)
+            {
+                if (z.ID_Studenta == s.ID && s.ID_Gruppi.ToString() == Gruppa_ID && z.tableZanyatiy.ID_Disciplini.ToString() == Disciplina_ID)
+                {
+                <td>
+                    @if (z.Otmetka == 1)
+                    {
+                        <img src="../../Content/p.png" style="width: 10px; height: 10px;" />
+                    }
+                    else
+                    {
+                        <img src="../../Content/n.png" style="width: 10px; height: 10px;" />
+                    }
+                </td>
+                }
+            }
+            <td style="padding: 0px;">
+                @Html.CheckBox(studID, true, new { @class = "squaredOne" })
+
+            </td>
+        </tr>
+            nomer++;
+            }
+        @Html.Hidden("Facultet_ID", Facultet_ID);
+        @Html.Hidden("Gruppa_ID", Gruppa_ID);
+        @Html.Hidden("Disciplina_ID", Disciplina_ID);
+        @Html.Hidden("Prepod_ID", Prepod_ID);
+
+    }
+
+</table>
+@{
+    string script = "$('#center_loader').show();";
+}
+<input form="jurnalForm" type="submit" value="Сохранить дату" style="margin-top:20px;" onclick="@script" />
+

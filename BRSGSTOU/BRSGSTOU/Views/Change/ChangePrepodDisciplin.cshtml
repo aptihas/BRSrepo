@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Изменить преподавателя дисциплины";
+}
+
+<div class="ssilki">
+    <p>@Html.ActionLink("Личный кабинет", "MainPanel", "Admin")</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>@Html.ActionLink("Панель администратора", "AdminPanel", "Admin")</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>Изменить преподавателя дисциплины</p>
+</div>
+     <div id="fixed_con"></div>
+    @if(ViewBag.Message=="ok")
+    {
+        <script type="text/javascript">
+            createInfoBlock(3, false, "Дисциплина закреплена за новым преподавателем");
+        </script>
+    }
+1. Выберите из списка дисциплину группы, преподавателя которой нужно изменить.<br />
+2. Выберите из списка нового преподавателя дисциплины.<br />
+3. Нажмите кнопку "Закрепить дисциплину за новым преподавателем".<br />
+<br /><br />
+
+@using (Html.BeginForm("ChangePrepodDisciplin", "Change", FormMethod.Post))
+{
+    
+    <select size="20" name="idOldPrepod">
+        @foreach (BRSGSTOU.Models.TeachersData pd in ViewBag.PrinadlegnostDisciplin)
+        {
+          <option selected value="@pd.prinadlegnostDisciplin_ID">@pd.Gruppa - @pd.Prepod - @pd.Disciplina</option>
+        }
+    </select>
+    
+    <br />
+    <br />
+    <select name="idNewPrepod">
+        @foreach (BRSGSTOU.Models.tablePrepods p in ViewBag.Prepods)
+        {
+          <option selected value="@p.ID">@p.Name</option>
+        }
+    </select>
+    <br />
+    <br />
+    <input type="submit" value="Закрепить дисциплину за новым преподавателем"  />
+}

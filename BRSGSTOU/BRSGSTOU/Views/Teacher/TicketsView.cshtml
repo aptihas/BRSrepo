@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Предпросмотр билетов";
+    Layout = null;
+}
+
+<script type="text/javascript">
+
+</script>
+
+<div id="tickets" style="font-size:10pt;">
+@{
+    <div style="text-align: center; margin: 10px; width: 800px; margin: auto;">
+    <hr style="border-style:dashed;" />
+    </div>
+    int x = 0;
+    int nomer = 1;
+    int nomerBileta = 1;
+    foreach (var q in ViewBag.finishQuestions)
+    {
+    <div style="text-align: center; margin: 10px; width: 800px; margin: auto;">
+        @if (x == 0)
+        {
+            foreach (var v in ViewBag.shapka)
+            {
+            <div style="text-align: center; font-weight: 600; padding: 3px;">
+                @v<br />
+            </div>
+            }
+            <div style="text-align: center; font-weight: 600; padding: 3px;">
+            Билет № @nomerBileta
+            </div>
+            
+        }
+        <div style="text-align: left; padding: 3px;">
+            @nomer. @q<br />
+        </div>
+        @{nomer++;}
+
+    </div>
+        
+          x++;
+          if (x >= ViewBag.questionsCount)
+          {
+    <div style="text-align: center; font-weight: 600; margin: 10px; padding-top: 15px; width: 800px; margin: auto;">
+        @ViewBag.podlogka
+        <hr style="border-style:dashed;" />
+    </div>
+    <br />
+              nomer = 1;
+              nomerBileta++;
+              x = 0;
+          }
+    }
+}
+</div>

@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Дисциплины";
+  }
+@{
+    string Subject;
+    string GruppaName = ViewBag.GruppaName;
+    string PrepodName = ViewBag.PrepodName;
+}
+<div class="ssilki">
+    <p>@Html.ActionLink("Личный кабинет", "TeacherCabinet", "Teacher")</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>@Html.ActionLink("Журнал преподавателя "+"\""+PrepodName+"\"", "JournalGrupps", "Journal")</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>@GruppaName</p>
+    <img class="slesh" src="../../Content/slesh.png" />
+    <p>Выберите дисциплину:</p>
+</div>
+
+
+
+@foreach (BRSGSTOU.Models.TeachersData b in ViewBag.PrepodDisciplins)
+{
+    Subject = "/"+b.Disciplina+"/";
+    <p>@Html.ActionLink("Учет посещаемости студентов группы "+GruppaName+" по дисциплине " + Subject, "JournalForSubjectofGrupp", "Journal", new {Facultet = b.Facultet_ID, Gruppa = b.Gruppa_ID, Predmet = b.Disciplina_ID, Prepodvatel = b.Prepod_ID }, new { @class = "fonSsilki" })</p>
+    <hr class="styletwo" />
+}
