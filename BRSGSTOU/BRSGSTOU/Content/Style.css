@@ -529,11 +529,11 @@ cursor:pointer;
 }
 .JournalPechat tr:first-child{
     border:1px solid black;
-    height:100px;
+    height:130px;
 }
 .JournalPechat tr td {
     border:1px solid black;
-    min-width:12px;
+    min-width:20px;
 }
 
 .rotate {

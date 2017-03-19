@@ -40,24 +40,46 @@
     <div style="min-height: 800px; max-height: 600px; text-align: left; font-size: 15pt; padding-left: 150px;">
         @foreach (BRSGSTOU.Models.TeachersData pd in ViewBag.PrinadlegnostDisciplin)
         {
-            <p style="margin: 0px; text-align: left; padding-left: 50px;">@pd.Gruppa - @pd.Disciplina</p>
+            string disciplina = "";
+            if (pd.Disciplina.Length > 40)
+            {
+                string[] dis = pd.Disciplina.Split(' ');
+                string _dis = "";
+                foreach (string f in dis)
+                {
+                    if (_dis == "")
+                    {
+                        _dis = f;
+                    }
+                    else
+                    {
+                        _dis += " " + f.Substring(0, 1) + ". ";
+                    }
+                }
+            }
+            else
+            {
+                disciplina = pd.Disciplina;
+            }
+
+            <p style="margin: 0px; text-align: left; padding-left: 50px;">@pd.Gruppa - @disciplina</p>
         }
     </div>
     <div style="height: 20px; text-align: center; font-size: 10pt;">г. Грозный - @DateTime.Now.Year г.</div>
     <div style="page-break-after: always"></div>
     @foreach (BRSGSTOU.Models.TeachersData pd in ViewBag.PrinadlegnostDisciplin)
     {
-        <div style="text-align: center; margin-top: 20px; font-weight: 600;">@pd.Gruppa - @pd.Disciplina</div>
+        <div style="text-align: center; margin-top: 20px; font-weight: 600;font-size:14pt;height:30px;">@pd.Gruppa - @pd.Disciplina</div>
         <table class="JournalPechat">
             <tr>
                 <td style="text-align: center;">№П/П</td>
                 <td style="text-align: center; min-width: 300px;">ФИО Студета</td>
-                @for (int q = 0; q < 25; q++)
+                @for (int q = 0; q < 22; q++)
                 {
                     <td style="padding-bottom: -10px;">
                         <svg>
-                            <text x="-95" y="12" transform="rotate(-90)">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/ @DateTime.Now.Year
+                            <text x="-120" y="15" transform="rotate(-90)">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/ @DateTime.Now.Year
                             </text>
                         </svg>
                     </td>
@@ -88,9 +110,9 @@
                 }
 
                 <tr style="@style">
-                    <td>@i</td>
-                    <td>
-                        @if (s.Name.Length > 35)
+                    <td style="font-size:16pt;">@i</td>
+                    <td style="font-size:16pt;">
+                        @if (s.Name.Length > 25)
                         {
                             string[] fio = s.Name.Split(' ');
                             string _fio = "";
@@ -112,14 +134,14 @@
                             @s.Name
                         }
                     </td>
-                    @for (int q = 0; q < 25; q++)
+                    @for (int q = 0; q < 22; q++)
                     {
                         <td></td>
                     }
                 </tr>
                 i++;
             }
-            @for (int j = i; j <= 40; j++)
+            @for (int j = i; j <= 38; j++)
             {
                 if (j % 2 == 0)
                 {
@@ -131,8 +153,8 @@
                 }
 
                 <tr style="@style">
-                    <td>@j</td>
-                    @for (int q = 0; q < 26; q++)
+                    <td style="font-size:16pt;">@j</td>
+                    @for (int q = 0; q < 23; q++)
                     {
                         <td></td>
                     }
@@ -140,71 +162,71 @@
             }
         </table>
         <div style="page-break-after: always"></div>
-        <br />
+        <div style="text-align: center; margin-top: 20px; font-weight: 600;font-size:14pt;height:30px;"></div>
         <table class="JournalPechat">
             <tr>
-                @for (int q = 0; q < 30; q++)
+                @for (int q = 0; q < 25; q++)
                 {
                     <td style="padding-bottom: -10px;">
                         <svg>
-                            <text x="-95" y="12" transform="rotate(-90)">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/ @DateTime.Now.Year
+                            <text x="-120" y="15" transform="rotate(-90)">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/ @DateTime.Now.Year
                             </text>
                         </svg>
                     </td>
                 }
                 <td style="padding-bottom: -10px;">
                     <svg>
-                        <text x="-80" y="12" transform="rotate(-90)">
+                        <text x="-110" y="12" transform="rotate(-90)">
                             Пос. 1 Атт
                         </text>
                     </svg>
                 </td>
                 <td style="padding-bottom: -10px;">
                     <svg>
-                        <text x="-80" y="12" transform="rotate(-90)">
+                        <text x="-110" y="12" transform="rotate(-90)">
                             Тек. 1 Атт
                         </text>
                     </svg>
                 </td>
                 <td style="padding-bottom: -10px;">
                     <svg>
-                        <text x="-80" y="12" transform="rotate(-90)">
+                        <text x="-110" y="12" transform="rotate(-90)">
                             Руб. 1 Атт
                         </text>
                     </svg>
                 </td>
                 <td style="padding-bottom: -10px;">
                     <svg>
-                        <text x="-80" y="12" transform="rotate(-90)">
+                        <text x="-110" y="12" transform="rotate(-90)">
                             Пос. 2 Атт
                         </text>
                     </svg>
                 </td>
                 <td style="padding-bottom: -10px;">
                     <svg>
-                        <text x="-80" y="12" transform="rotate(-90)">
+                        <text x="-110" y="12" transform="rotate(-90)">
                             Тек. 2 Атт
                         </text>
                     </svg>
                 </td>
                 <td style="padding-bottom: -10px;">
                     <svg>
-                        <text x="-80" y="12" transform="rotate(-90)">
+                        <text x="-110" y="12" transform="rotate(-90)">
                             Руб. 2 Атт
                         </text>
                     </svg>
                 </td>
                 <td style="padding-bottom: -10px;">
                     <svg>
-                        <text x="-80" y="12" transform="rotate(-90)">
+                        <text x="-110" y="12" transform="rotate(-90)">
                             Самост.
                         </text>
                     </svg>
                 </td>
                 <td style="padding-bottom: -10px;">
                     <svg>
-                        <text x="-80" y="12" transform="rotate(-90)">
+                        <text x="-110" y="12" transform="rotate(-90)">
                             Итого
                         </text>
                     </svg>
@@ -212,7 +234,7 @@
                 <td style="text-align: center;">№П/П</td>
 
             </tr>
-            @for (int j = 1; j <= 40; j++)
+            @for (int j = 1; j <= 38; j++)
             {
                 if (j % 2 == 0)
                 {
@@ -224,11 +246,11 @@
                 }
                 <tr style="@style">
 
-                    @for (int q = 0; q < 38; q++)
+                    @for (int q = 0; q < 33; q++)
                     {
                         <td></td>
                     }
-                    <td style="text-align: center;">@j</td>
+                    <td style="text-align: center;font-size:16pt;">@j</td>
                 </tr>
             }
         </table>
