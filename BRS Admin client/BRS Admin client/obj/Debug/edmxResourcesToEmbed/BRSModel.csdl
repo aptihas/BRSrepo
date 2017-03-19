@@ -1,0 +1,486 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbBRSModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="dbBRSEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="tableAdmins" EntityType="dbBRSModel.tableAdmins" />
+    <EntitySet Name="tableBalli" EntityType="dbBRSModel.tableBalli" />
+    <EntitySet Name="tableDisciplin" EntityType="dbBRSModel.tableDisciplin" />
+    <EntitySet Name="tableFacultet" EntityType="dbBRSModel.tableFacultet" />
+    <EntitySet Name="tableGrupp" EntityType="dbBRSModel.tableGrupp" />
+    <EntitySet Name="tablePoseshenie" EntityType="dbBRSModel.tablePoseshenie" />
+    <EntitySet Name="tablePrepods" EntityType="dbBRSModel.tablePrepods" />
+    <EntitySet Name="tablePrinadlegnistDisciplin" EntityType="dbBRSModel.tablePrinadlegnistDisciplin" />
+    <EntitySet Name="tableRoles" EntityType="dbBRSModel.tableRoles" />
+    <EntitySet Name="tableStudents" EntityType="dbBRSModel.tableStudents" />
+    <EntitySet Name="tableZanyatiy" EntityType="dbBRSModel.tableZanyatiy" />
+    <EntitySet Name="teachersAccounts" EntityType="dbBRSModel.teachersAccounts" />
+    <AssociationSet Name="FK_tableAdmins_tableAdmins" Association="dbBRSModel.FK_tableAdmins_tableAdmins">
+      <End Role="tableRoles" EntitySet="tableRoles" />
+      <End Role="tableAdmins" EntitySet="tableAdmins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tableAdmins_tableFacultet" Association="dbBRSModel.FK_tableAdmins_tableFacultet">
+      <End Role="tableFacultet" EntitySet="tableFacultet" />
+      <End Role="tableAdmins" EntitySet="tableAdmins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tableBalli_tableDisciplin" Association="dbBRSModel.FK_tableBalli_tableDisciplin">
+      <End Role="tableDisciplin" EntitySet="tableDisciplin" />
+      <End Role="tableBalli" EntitySet="tableBalli" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tableBalli_tableGrupp" Association="dbBRSModel.FK_tableBalli_tableGrupp">
+      <End Role="tableGrupp" EntitySet="tableGrupp" />
+      <End Role="tableBalli" EntitySet="tableBalli" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tableBalli_tablePrepods" Association="dbBRSModel.FK_tableBalli_tablePrepods">
+      <End Role="tablePrepods" EntitySet="tablePrepods" />
+      <End Role="tableBalli" EntitySet="tableBalli" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tableBalli_tableStudents" Association="dbBRSModel.FK_tableBalli_tableStudents">
+      <End Role="tableStudents" EntitySet="tableStudents" />
+      <End Role="tableBalli" EntitySet="tableBalli" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tablePrinadlegnistDisciplin_tableDisciplin" Association="dbBRSModel.FK_tablePrinadlegnistDisciplin_tableDisciplin">
+      <End Role="tableDisciplin" EntitySet="tableDisciplin" />
+      <End Role="tablePrinadlegnistDisciplin" EntitySet="tablePrinadlegnistDisciplin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tableZanyatiy_tableDisciplin" Association="dbBRSModel.FK_tableZanyatiy_tableDisciplin">
+      <End Role="tableDisciplin" EntitySet="tableDisciplin" />
+      <End Role="tableZanyatiy" EntitySet="tableZanyatiy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tableGrupp_tableFacultet" Association="dbBRSModel.FK_tableGrupp_tableFacultet">
+      <End Role="tableFacultet" EntitySet="tableFacultet" />
+      <End Role="tableGrupp" EntitySet="tableGrupp" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tablePrinadlegnistDisciplin_tableFacultet" Association="dbBRSModel.FK_tablePrinadlegnistDisciplin_tableFacultet">
+      <End Role="tableFacultet" EntitySet="tableFacultet" />
+      <End Role="tablePrinadlegnistDisciplin" EntitySet="tablePrinadlegnistDisciplin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tablePrinadlegnistDisciplin_tableGrupp" Association="dbBRSModel.FK_tablePrinadlegnistDisciplin_tableGrupp">
+      <End Role="tableGrupp" EntitySet="tableGrupp" />
+      <End Role="tablePrinadlegnistDisciplin" EntitySet="tablePrinadlegnistDisciplin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tableStudents_tableGrupp" Association="dbBRSModel.FK_tableStudents_tableGrupp">
+      <End Role="tableGrupp" EntitySet="tableGrupp" />
+      <End Role="tableStudents" EntitySet="tableStudents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tableZanyatiy_tableGrupp" Association="dbBRSModel.FK_tableZanyatiy_tableGrupp">
+      <End Role="tableGrupp" EntitySet="tableGrupp" />
+      <End Role="tableZanyatiy" EntitySet="tableZanyatiy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tablePoseshenie_tableStudents" Association="dbBRSModel.FK_tablePoseshenie_tableStudents">
+      <End Role="tableStudents" EntitySet="tableStudents" />
+      <End Role="tablePoseshenie" EntitySet="tablePoseshenie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tablePoseshenie_tableZanyatiy" Association="dbBRSModel.FK_tablePoseshenie_tableZanyatiy">
+      <End Role="tableZanyatiy" EntitySet="tableZanyatiy" />
+      <End Role="tablePoseshenie" EntitySet="tablePoseshenie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tableZanyatiy_tablePrepods" Association="dbBRSModel.FK_tableZanyatiy_tablePrepods">
+      <End Role="tablePrepods" EntitySet="tablePrepods" />
+      <End Role="tableZanyatiy" EntitySet="tableZanyatiy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_teachersAccounts_tablePrepods" Association="dbBRSModel.FK_teachersAccounts_tablePrepods">
+      <End Role="tablePrepods" EntitySet="tablePrepods" />
+      <End Role="teachersAccounts" EntitySet="teachersAccounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_teachersAccounts_tableRoles" Association="dbBRSModel.FK_teachersAccounts_tableRoles">
+      <End Role="tableRoles" EntitySet="tableRoles" />
+      <End Role="teachersAccounts" EntitySet="teachersAccounts" />
+    </AssociationSet>
+    <EntitySet Name="tableProfile" EntityType="dbBRSModel.tableProfile" />
+    <AssociationSet Name="FK_tableGrupp_tableProfile" Association="dbBRSModel.FK_tableGrupp_tableProfile">
+      <End Role="tableProfile" EntitySet="tableProfile" />
+      <End Role="tableGrupp" EntitySet="tableGrupp" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tableAdmins">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Role_ID" Type="Int32" Nullable="false" />
+    <Property Name="Facultet_ID" Type="Int32" Nullable="false" />
+    <Property Name="Login" Type="String" Nullable="false" MaxLength="16" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="16" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="tableRoles" Relationship="dbBRSModel.FK_tableAdmins_tableAdmins" FromRole="tableAdmins" ToRole="tableRoles" />
+    <NavigationProperty Name="tableFacultet" Relationship="dbBRSModel.FK_tableAdmins_tableFacultet" FromRole="tableAdmins" ToRole="tableFacultet" />
+  </EntityType>
+  <EntityType Name="tableBalli">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Gruppi" Type="Int32" Nullable="false" />
+    <Property Name="ID_Disciplini" Type="Int32" Nullable="false" />
+    <Property Name="ID_prepoda" Type="Int32" Nullable="false" />
+    <Property Name="ID_Studenta" Type="Int32" Nullable="false" />
+    <Property Name="Pos1" Type="Int32" Nullable="false" />
+    <Property Name="Tek1" Type="Int32" Nullable="false" />
+    <Property Name="Rub1" Type="Int32" Nullable="false" />
+    <Property Name="Pos2" Type="Int32" Nullable="false" />
+    <Property Name="Tek2" Type="Int32" Nullable="false" />
+    <Property Name="Rub2" Type="Int32" Nullable="false" />
+    <Property Name="Samost" Type="Int32" Nullable="false" />
+    <Property Name="Dosdacha" Type="Int32" Nullable="false" />
+    <Property Name="Premial" Type="Int32" Nullable="false" />
+    <Property Name="Itog" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tableDisciplin" Relationship="dbBRSModel.FK_tableBalli_tableDisciplin" FromRole="tableBalli" ToRole="tableDisciplin" />
+    <NavigationProperty Name="tableGrupp" Relationship="dbBRSModel.FK_tableBalli_tableGrupp" FromRole="tableBalli" ToRole="tableGrupp" />
+    <NavigationProperty Name="tablePrepods" Relationship="dbBRSModel.FK_tableBalli_tablePrepods" FromRole="tableBalli" ToRole="tablePrepods" />
+    <NavigationProperty Name="tableStudents" Relationship="dbBRSModel.FK_tableBalli_tableStudents" FromRole="tableBalli" ToRole="tableStudents" />
+  </EntityType>
+  <EntityType Name="tableDisciplin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="300" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="tableBalli" Relationship="dbBRSModel.FK_tableBalli_tableDisciplin" FromRole="tableDisciplin" ToRole="tableBalli" />
+    <NavigationProperty Name="tablePrinadlegnistDisciplin" Relationship="dbBRSModel.FK_tablePrinadlegnistDisciplin_tableDisciplin" FromRole="tableDisciplin" ToRole="tablePrinadlegnistDisciplin" />
+    <NavigationProperty Name="tableZanyatiy" Relationship="dbBRSModel.FK_tableZanyatiy_tableDisciplin" FromRole="tableDisciplin" ToRole="tableZanyatiy" />
+  </EntityType>
+  <EntityType Name="tableFacultet">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="tableAdmins" Relationship="dbBRSModel.FK_tableAdmins_tableFacultet" FromRole="tableFacultet" ToRole="tableAdmins" />
+    <NavigationProperty Name="tableGrupp" Relationship="dbBRSModel.FK_tableGrupp_tableFacultet" FromRole="tableFacultet" ToRole="tableGrupp" />
+    <NavigationProperty Name="tablePrinadlegnistDisciplin" Relationship="dbBRSModel.FK_tablePrinadlegnistDisciplin_tableFacultet" FromRole="tableFacultet" ToRole="tablePrinadlegnistDisciplin" />
+  </EntityType>
+  <EntityType Name="tableGrupp">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="IDFacultet" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="tableBalli" Relationship="dbBRSModel.FK_tableBalli_tableGrupp" FromRole="tableGrupp" ToRole="tableBalli" />
+    <NavigationProperty Name="tableFacultet" Relationship="dbBRSModel.FK_tableGrupp_tableFacultet" FromRole="tableGrupp" ToRole="tableFacultet" />
+    <NavigationProperty Name="tablePrinadlegnistDisciplin" Relationship="dbBRSModel.FK_tablePrinadlegnistDisciplin_tableGrupp" FromRole="tableGrupp" ToRole="tablePrinadlegnistDisciplin" />
+    <NavigationProperty Name="tableStudents" Relationship="dbBRSModel.FK_tableStudents_tableGrupp" FromRole="tableGrupp" ToRole="tableStudents" />
+    <NavigationProperty Name="tableZanyatiy" Relationship="dbBRSModel.FK_tableZanyatiy_tableGrupp" FromRole="tableGrupp" ToRole="tableZanyatiy" />
+    <Property Type="Int32" Name="IDProfile" Nullable="false" />
+    <NavigationProperty Name="tableProfile" Relationship="dbBRSModel.FK_tableGrupp_tableProfile" FromRole="tableGrupp" ToRole="tableProfile" />
+  </EntityType>
+  <EntityType Name="tablePoseshenie">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Studenta" Type="Int32" Nullable="false" />
+    <Property Name="ID_Zanyatiya" Type="Int32" Nullable="false" />
+    <Property Name="Otmetka" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="tableStudents" Relationship="dbBRSModel.FK_tablePoseshenie_tableStudents" FromRole="tablePoseshenie" ToRole="tableStudents" />
+    <NavigationProperty Name="tableZanyatiy" Relationship="dbBRSModel.FK_tablePoseshenie_tableZanyatiy" FromRole="tablePoseshenie" ToRole="tableZanyatiy" />
+  </EntityType>
+  <EntityType Name="tablePrepods">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="tableBalli" Relationship="dbBRSModel.FK_tableBalli_tablePrepods" FromRole="tablePrepods" ToRole="tableBalli" />
+    <NavigationProperty Name="tableZanyatiy" Relationship="dbBRSModel.FK_tableZanyatiy_tablePrepods" FromRole="tablePrepods" ToRole="tableZanyatiy" />
+    <NavigationProperty Name="teachersAccounts" Relationship="dbBRSModel.FK_teachersAccounts_tablePrepods" FromRole="tablePrepods" ToRole="teachersAccounts" />
+  </EntityType>
+  <EntityType Name="tablePrinadlegnistDisciplin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Facultet" Type="Int32" Nullable="false" />
+    <Property Name="ID_Gruppi" Type="Int32" Nullable="false" />
+    <Property Name="ID_Disciplini" Type="Int32" Nullable="false" />
+    <Property Name="ID_Prepoda" Type="Int32" Nullable="false" />
+    <Property Name="Otchetnost" Type="Int32" Nullable="false" />
+    <Property Name="KR_KP" Type="Int32" Nullable="false" />
+    <Property Name="ChasiDisciplini" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tableDisciplin" Relationship="dbBRSModel.FK_tablePrinadlegnistDisciplin_tableDisciplin" FromRole="tablePrinadlegnistDisciplin" ToRole="tableDisciplin" />
+    <NavigationProperty Name="tableFacultet" Relationship="dbBRSModel.FK_tablePrinadlegnistDisciplin_tableFacultet" FromRole="tablePrinadlegnistDisciplin" ToRole="tableFacultet" />
+    <NavigationProperty Name="tableGrupp" Relationship="dbBRSModel.FK_tablePrinadlegnistDisciplin_tableGrupp" FromRole="tablePrinadlegnistDisciplin" ToRole="tableGrupp" />
+  </EntityType>
+  <EntityType Name="tableRoles">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="tableAdmins" Relationship="dbBRSModel.FK_tableAdmins_tableAdmins" FromRole="tableRoles" ToRole="tableAdmins" />
+    <NavigationProperty Name="teachersAccounts" Relationship="dbBRSModel.FK_teachersAccounts_tableRoles" FromRole="tableRoles" ToRole="teachersAccounts" />
+  </EntityType>
+  <EntityType Name="tableStudents">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Gruppi" Type="Int32" Nullable="false" />
+    <Property Name="NomerZachetki" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="tableBalli" Relationship="dbBRSModel.FK_tableBalli_tableStudents" FromRole="tableStudents" ToRole="tableBalli" />
+    <NavigationProperty Name="tableGrupp" Relationship="dbBRSModel.FK_tableStudents_tableGrupp" FromRole="tableStudents" ToRole="tableGrupp" />
+    <NavigationProperty Name="tablePoseshenie" Relationship="dbBRSModel.FK_tablePoseshenie_tableStudents" FromRole="tableStudents" ToRole="tablePoseshenie" />
+    <Property Type="Byte" Name="DopuskKSessii" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tableZanyatiy">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Gruppi" Type="Int32" Nullable="false" />
+    <Property Name="ID_Disciplini" Type="Int32" Nullable="false" />
+    <Property Name="ID_Prepoda" Type="Int32" Nullable="false" />
+    <Property Name="Vremya" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="tableDisciplin" Relationship="dbBRSModel.FK_tableZanyatiy_tableDisciplin" FromRole="tableZanyatiy" ToRole="tableDisciplin" />
+    <NavigationProperty Name="tableGrupp" Relationship="dbBRSModel.FK_tableZanyatiy_tableGrupp" FromRole="tableZanyatiy" ToRole="tableGrupp" />
+    <NavigationProperty Name="tablePoseshenie" Relationship="dbBRSModel.FK_tablePoseshenie_tableZanyatiy" FromRole="tableZanyatiy" ToRole="tablePoseshenie" />
+    <NavigationProperty Name="tablePrepods" Relationship="dbBRSModel.FK_tableZanyatiy_tablePrepods" FromRole="tableZanyatiy" ToRole="tablePrepods" />
+  </EntityType>
+  <EntityType Name="teachersAccounts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Role_ID" Type="Int32" Nullable="false" />
+    <Property Name="ID_Prepoda" Type="Int32" Nullable="false" />
+    <Property Name="Login" Type="String" Nullable="false" MaxLength="16" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="16" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="tablePrepods" Relationship="dbBRSModel.FK_teachersAccounts_tablePrepods" FromRole="teachersAccounts" ToRole="tablePrepods" />
+    <NavigationProperty Name="tableRoles" Relationship="dbBRSModel.FK_teachersAccounts_tableRoles" FromRole="teachersAccounts" ToRole="tableRoles" />
+  </EntityType>
+  <Association Name="FK_tableAdmins_tableAdmins">
+    <End Role="tableRoles" Type="dbBRSModel.tableRoles" Multiplicity="1" />
+    <End Role="tableAdmins" Type="dbBRSModel.tableAdmins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tableRoles">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tableAdmins">
+        <PropertyRef Name="Role_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tableAdmins_tableFacultet">
+    <End Role="tableFacultet" Type="dbBRSModel.tableFacultet" Multiplicity="1" />
+    <End Role="tableAdmins" Type="dbBRSModel.tableAdmins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tableFacultet">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tableAdmins">
+        <PropertyRef Name="Facultet_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tableBalli_tableDisciplin">
+    <End Role="tableDisciplin" Type="dbBRSModel.tableDisciplin" Multiplicity="1" />
+    <End Role="tableBalli" Type="dbBRSModel.tableBalli" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tableDisciplin">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tableBalli">
+        <PropertyRef Name="ID_Disciplini" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tableBalli_tableGrupp">
+    <End Role="tableGrupp" Type="dbBRSModel.tableGrupp" Multiplicity="1" />
+    <End Role="tableBalli" Type="dbBRSModel.tableBalli" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tableGrupp">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tableBalli">
+        <PropertyRef Name="ID_Gruppi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tableBalli_tablePrepods">
+    <End Role="tablePrepods" Type="dbBRSModel.tablePrepods" Multiplicity="1" />
+    <End Role="tableBalli" Type="dbBRSModel.tableBalli" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tablePrepods">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tableBalli">
+        <PropertyRef Name="ID_prepoda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tableBalli_tableStudents">
+    <End Role="tableStudents" Type="dbBRSModel.tableStudents" Multiplicity="1" />
+    <End Role="tableBalli" Type="dbBRSModel.tableBalli" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tableStudents">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tableBalli">
+        <PropertyRef Name="ID_Studenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tablePrinadlegnistDisciplin_tableDisciplin">
+    <End Role="tableDisciplin" Type="dbBRSModel.tableDisciplin" Multiplicity="1" />
+    <End Role="tablePrinadlegnistDisciplin" Type="dbBRSModel.tablePrinadlegnistDisciplin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tableDisciplin">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tablePrinadlegnistDisciplin">
+        <PropertyRef Name="ID_Disciplini" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tableZanyatiy_tableDisciplin">
+    <End Role="tableDisciplin" Type="dbBRSModel.tableDisciplin" Multiplicity="1" />
+    <End Role="tableZanyatiy" Type="dbBRSModel.tableZanyatiy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tableDisciplin">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tableZanyatiy">
+        <PropertyRef Name="ID_Disciplini" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tableGrupp_tableFacultet">
+    <End Role="tableFacultet" Type="dbBRSModel.tableFacultet" Multiplicity="1" />
+    <End Role="tableGrupp" Type="dbBRSModel.tableGrupp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tableFacultet">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tableGrupp">
+        <PropertyRef Name="IDFacultet" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tablePrinadlegnistDisciplin_tableFacultet">
+    <End Role="tableFacultet" Type="dbBRSModel.tableFacultet" Multiplicity="1" />
+    <End Role="tablePrinadlegnistDisciplin" Type="dbBRSModel.tablePrinadlegnistDisciplin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tableFacultet">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tablePrinadlegnistDisciplin">
+        <PropertyRef Name="ID_Facultet" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tablePrinadlegnistDisciplin_tableGrupp">
+    <End Role="tableGrupp" Type="dbBRSModel.tableGrupp" Multiplicity="1" />
+    <End Role="tablePrinadlegnistDisciplin" Type="dbBRSModel.tablePrinadlegnistDisciplin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tableGrupp">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tablePrinadlegnistDisciplin">
+        <PropertyRef Name="ID_Gruppi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tableStudents_tableGrupp">
+    <End Role="tableGrupp" Type="dbBRSModel.tableGrupp" Multiplicity="1" />
+    <End Role="tableStudents" Type="dbBRSModel.tableStudents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tableGrupp">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tableStudents">
+        <PropertyRef Name="ID_Gruppi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tableZanyatiy_tableGrupp">
+    <End Role="tableGrupp" Type="dbBRSModel.tableGrupp" Multiplicity="1" />
+    <End Role="tableZanyatiy" Type="dbBRSModel.tableZanyatiy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tableGrupp">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tableZanyatiy">
+        <PropertyRef Name="ID_Gruppi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tablePoseshenie_tableStudents">
+    <End Role="tableStudents" Type="dbBRSModel.tableStudents" Multiplicity="1" />
+    <End Role="tablePoseshenie" Type="dbBRSModel.tablePoseshenie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tableStudents">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tablePoseshenie">
+        <PropertyRef Name="ID_Studenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tablePoseshenie_tableZanyatiy">
+    <End Role="tableZanyatiy" Type="dbBRSModel.tableZanyatiy" Multiplicity="1" />
+    <End Role="tablePoseshenie" Type="dbBRSModel.tablePoseshenie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tableZanyatiy">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tablePoseshenie">
+        <PropertyRef Name="ID_Zanyatiya" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tableZanyatiy_tablePrepods">
+    <End Role="tablePrepods" Type="dbBRSModel.tablePrepods" Multiplicity="1" />
+    <End Role="tableZanyatiy" Type="dbBRSModel.tableZanyatiy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tablePrepods">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tableZanyatiy">
+        <PropertyRef Name="ID_Prepoda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_teachersAccounts_tablePrepods">
+    <End Role="tablePrepods" Type="dbBRSModel.tablePrepods" Multiplicity="1" />
+    <End Role="teachersAccounts" Type="dbBRSModel.teachersAccounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tablePrepods">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="teachersAccounts">
+        <PropertyRef Name="ID_Prepoda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_teachersAccounts_tableRoles">
+    <End Role="tableRoles" Type="dbBRSModel.tableRoles" Multiplicity="1" />
+    <End Role="teachersAccounts" Type="dbBRSModel.teachersAccounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tableRoles">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="teachersAccounts">
+        <PropertyRef Name="Role_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tableProfile">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tableGrupp" Relationship="dbBRSModel.FK_tableGrupp_tableProfile" FromRole="tableProfile" ToRole="tableGrupp" />
+  </EntityType>
+  <Association Name="FK_tableGrupp_tableProfile">
+    <End Type="dbBRSModel.tableProfile" Role="tableProfile" Multiplicity="1" />
+    <End Type="dbBRSModel.tableGrupp" Role="tableGrupp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tableProfile">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tableGrupp">
+        <PropertyRef Name="IDProfile" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

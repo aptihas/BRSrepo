@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3680572B-C465-42B7-913D-A8EF363F9911}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BRS_Admin_client</RootNamespace>
+    <AssemblyName>BRS Admin client</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="C1.Win.C1FlexGrid.4, Version=4.0.20152.67, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BRSModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BRSModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BRSModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BRSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BRSModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BRSModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateItogTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateItogTable.Designer.cs">
+      <DependentUpon>CreateItogTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modelBalli.cs" />
+    <Compile Include="ModelGruppi.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubjectListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubjectListForm.Designer.cs">
+      <DependentUpon>SubjectListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="tableAdmins.cs">
+      <DependentUpon>BRSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tableBalli.cs">
+      <DependentUpon>BRSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tableDisciplin.cs">
+      <DependentUpon>BRSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tableFacultet.cs">
+      <DependentUpon>BRSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tableGrupp.cs">
+      <DependentUpon>BRSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tablePoseshenie.cs">
+      <DependentUpon>BRSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tablePrepods.cs">
+      <DependentUpon>BRSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tablePrinadlegnistDisciplin.cs">
+      <DependentUpon>BRSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tableProfile.cs">
+      <DependentUpon>BRSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tableRoles.cs">
+      <DependentUpon>BRSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tableStudents.cs">
+      <DependentUpon>BRSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tableZanyatiy.cs">
+      <DependentUpon>BRSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="teachersAccounts.cs">
+      <DependentUpon>BRSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Translit.cs" />
+    <EmbeddedResource Include="CreateItogTable.resx">
+      <DependentUpon>CreateItogTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="SubjectListForm.resx">
+      <DependentUpon>SubjectListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="BRSModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BRSModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="BRSModel.edmx.diagram">
+      <DependentUpon>BRSModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BRSModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BRSModel.edmx</DependentUpon>
+      <LastGenOutput>BRSModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="BRSModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BRSModel.edmx</DependentUpon>
+      <LastGenOutput>BRSModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

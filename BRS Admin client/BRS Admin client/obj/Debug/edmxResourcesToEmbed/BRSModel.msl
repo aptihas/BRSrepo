@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище dbBRSModelContainer" CdmEntityContainer="dbBRSEntities">
+    <EntitySetMapping Name="tableAdmins">
+      <EntityTypeMapping TypeName="dbBRSModel.tableAdmins">
+        <MappingFragment StoreEntitySet="tableAdmins">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Role_ID" ColumnName="Role_ID" />
+          <ScalarProperty Name="Facultet_ID" ColumnName="Facultet_ID" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tableBalli">
+      <EntityTypeMapping TypeName="dbBRSModel.tableBalli">
+        <MappingFragment StoreEntitySet="tableBalli">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_Gruppi" ColumnName="ID_Gruppi" />
+          <ScalarProperty Name="ID_Disciplini" ColumnName="ID_Disciplini" />
+          <ScalarProperty Name="ID_prepoda" ColumnName="ID_prepoda" />
+          <ScalarProperty Name="ID_Studenta" ColumnName="ID_Studenta" />
+          <ScalarProperty Name="Pos1" ColumnName="Pos1" />
+          <ScalarProperty Name="Tek1" ColumnName="Tek1" />
+          <ScalarProperty Name="Rub1" ColumnName="Rub1" />
+          <ScalarProperty Name="Pos2" ColumnName="Pos2" />
+          <ScalarProperty Name="Tek2" ColumnName="Tek2" />
+          <ScalarProperty Name="Rub2" ColumnName="Rub2" />
+          <ScalarProperty Name="Samost" ColumnName="Samost" />
+          <ScalarProperty Name="Dosdacha" ColumnName="Dosdacha" />
+          <ScalarProperty Name="Premial" ColumnName="Premial" />
+          <ScalarProperty Name="Itog" ColumnName="Itog" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tableDisciplin">
+      <EntityTypeMapping TypeName="dbBRSModel.tableDisciplin">
+        <MappingFragment StoreEntitySet="tableDisciplin">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tableFacultet">
+      <EntityTypeMapping TypeName="dbBRSModel.tableFacultet">
+        <MappingFragment StoreEntitySet="tableFacultet">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tableGrupp">
+      <EntityTypeMapping TypeName="dbBRSModel.tableGrupp">
+        <MappingFragment StoreEntitySet="tableGrupp">
+          <ScalarProperty Name="IDProfile" ColumnName="IDProfile" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDFacultet" ColumnName="IDFacultet" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tablePoseshenie">
+      <EntityTypeMapping TypeName="dbBRSModel.tablePoseshenie">
+        <MappingFragment StoreEntitySet="tablePoseshenie">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_Studenta" ColumnName="ID_Studenta" />
+          <ScalarProperty Name="ID_Zanyatiya" ColumnName="ID_Zanyatiya" />
+          <ScalarProperty Name="Otmetka" ColumnName="Otmetka" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tablePrepods">
+      <EntityTypeMapping TypeName="dbBRSModel.tablePrepods">
+        <MappingFragment StoreEntitySet="tablePrepods">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tablePrinadlegnistDisciplin">
+      <EntityTypeMapping TypeName="dbBRSModel.tablePrinadlegnistDisciplin">
+        <MappingFragment StoreEntitySet="tablePrinadlegnistDisciplin">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_Facultet" ColumnName="ID_Facultet" />
+          <ScalarProperty Name="ID_Gruppi" ColumnName="ID_Gruppi" />
+          <ScalarProperty Name="ID_Disciplini" ColumnName="ID_Disciplini" />
+          <ScalarProperty Name="ID_Prepoda" ColumnName="ID_Prepoda" />
+          <ScalarProperty Name="Otchetnost" ColumnName="Otchetnost" />
+          <ScalarProperty Name="KR_KP" ColumnName="KR_KP" />
+          <ScalarProperty Name="ChasiDisciplini" ColumnName="ChasiDisciplini" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tableRoles">
+      <EntityTypeMapping TypeName="dbBRSModel.tableRoles">
+        <MappingFragment StoreEntitySet="tableRoles">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tableStudents">
+      <EntityTypeMapping TypeName="dbBRSModel.tableStudents">
+        <MappingFragment StoreEntitySet="tableStudents">
+          <ScalarProperty Name="DopuskKSessii" ColumnName="DopuskKSessii" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_Gruppi" ColumnName="ID_Gruppi" />
+          <ScalarProperty Name="NomerZachetki" ColumnName="NomerZachetki" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tableZanyatiy">
+      <EntityTypeMapping TypeName="dbBRSModel.tableZanyatiy">
+        <MappingFragment StoreEntitySet="tableZanyatiy">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_Gruppi" ColumnName="ID_Gruppi" />
+          <ScalarProperty Name="ID_Disciplini" ColumnName="ID_Disciplini" />
+          <ScalarProperty Name="ID_Prepoda" ColumnName="ID_Prepoda" />
+          <ScalarProperty Name="Vremya" ColumnName="Vremya" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="teachersAccounts">
+      <EntityTypeMapping TypeName="dbBRSModel.teachersAccounts">
+        <MappingFragment StoreEntitySet="teachersAccounts">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Role_ID" ColumnName="Role_ID" />
+          <ScalarProperty Name="ID_Prepoda" ColumnName="ID_Prepoda" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tableProfile">
+      <EntityTypeMapping TypeName="dbBRSModel.tableProfile">
+        <MappingFragment StoreEntitySet="tableProfile">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

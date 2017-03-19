@@ -1,0 +1,74 @@
+c:\users\vivbook\documents\visual studio 2012\Projects\BRS Admin client\BRS Admin client\bin\Debug\BRS Admin client.exe.config
+c:\users\vivbook\documents\visual studio 2012\Projects\BRS Admin client\BRS Admin client\bin\Debug\BRS Admin client.exe
+c:\users\vivbook\documents\visual studio 2012\Projects\BRS Admin client\BRS Admin client\bin\Debug\BRS Admin client.pdb
+c:\users\vivbook\documents\visual studio 2012\Projects\BRS Admin client\BRS Admin client\obj\Debug\BRS_Admin_client.MainForm.resources
+c:\users\vivbook\documents\visual studio 2012\Projects\BRS Admin client\BRS Admin client\obj\Debug\BRS_Admin_client.Properties.Resources.resources
+c:\users\vivbook\documents\visual studio 2012\Projects\BRS Admin client\BRS Admin client\obj\Debug\BRS Admin client.csproj.GenerateResource.Cache
+c:\users\vivbook\documents\visual studio 2012\Projects\BRS Admin client\BRS Admin client\obj\Debug\BRS Admin client.exe
+c:\users\vivbook\documents\visual studio 2012\Projects\BRS Admin client\BRS Admin client\obj\Debug\BRS Admin client.pdb
+c:\users\vivbook\documents\visual studio 2012\Projects\BRS Admin client\BRS Admin client\bin\Debug\C1.Win.C1FlexGrid.4.dll
+c:\users\vivbook\documents\visual studio 2012\Projects\BRS Admin client\BRS Admin client\bin\Debug\C1.Win.C1FlexGrid.4.xml
+c:\users\vivbook\documents\visual studio 2012\Projects\BRS Admin client\BRS Admin client\obj\Debug\BRS_Admin_client.SubjectListForm.resources
+c:\users\vivbook\documents\visual studio 2012\Projects\BRS Admin client\BRS Admin client\obj\Debug\BRS Admin client.exe.licenses
+C:\Users\Vivbook\documents\visual studio 2012\Projects\BRS Admin client\BRS Admin client\obj\Debug\BRS_Admin_client.CreateItogTable.resources
+C:\Users\Vivbook\documents\visual studio 2012\Projects\BRS Admin client\BRS Admin client\bin\Debug\EntityFramework.dll
+C:\Users\Vivbook\documents\visual studio 2012\Projects\BRS Admin client\BRS Admin client\bin\Debug\EntityFramework.xml
+C:\Users\Vivbook\documents\visual studio 2012\Projects\BRS Admin client\BRS Admin client\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\Vivbook\Documents\Visual Studio 2012\Projects\BRS Admin client\BRS Admin client\obj\Debug\BRS Admin client.csprojResolveAssemblyReference.cache
+C:\Users\Vivbook\Desktop\BRS System GSTOU 1.0 Полностью готово (Плюс сводный журнал)\BRS Admin client\BRS Admin client\bin\Debug\BRS Admin client.exe.config
+C:\Users\Vivbook\Desktop\BRS System GSTOU 1.0 Полностью готово (Плюс сводный журнал)\BRS Admin client\BRS Admin client\obj\Debug\BRS Admin client.exe
+C:\Users\Vivbook\Desktop\BRS System GSTOU 1.0 Полностью готово (Плюс сводный журнал)\BRS Admin client\BRS Admin client\obj\Debug\BRS Admin client.pdb
+C:\Users\Vivbook\Desktop\BRS System GSTOU 1.0 Полностью готово (Плюс сводный журнал)\BRS Admin client\BRS Admin client\bin\Debug\BRS Admin client.exe
+C:\Users\Vivbook\Desktop\BRS System GSTOU 1.0 Полностью готово (Плюс сводный журнал)\BRS Admin client\BRS Admin client\bin\Debug\BRS Admin client.pdb
+C:\Users\Vivbook\Desktop\BRS System GSTOU 1.0 Полностью готово (Плюс сводный журнал)\BRS Admin client\BRS Admin client\bin\Debug\C1.Win.C1FlexGrid.4.dll
+C:\Users\Vivbook\Desktop\BRS System GSTOU 1.0 Полностью готово (Плюс сводный журнал)\BRS Admin client\BRS Admin client\bin\Debug\EntityFramework.dll
+C:\Users\Vivbook\Desktop\BRS System GSTOU 1.0 Полностью готово (Плюс сводный журнал)\BRS Admin client\BRS Admin client\bin\Debug\C1.Win.C1FlexGrid.4.xml
+C:\Users\Vivbook\Desktop\BRS System GSTOU 1.0 Полностью готово (Плюс сводный журнал)\BRS Admin client\BRS Admin client\bin\Debug\EntityFramework.xml
+C:\Users\Vivbook\Desktop\BRS System GSTOU 1.0 Полностью готово (Плюс сводный журнал)\BRS Admin client\BRS Admin client\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\Vivbook\Desktop\BRS System GSTOU 1.0 Полностью готово (Плюс сводный журнал)\BRS Admin client\BRS Admin client\obj\Debug\BRS Admin client.csprojResolveAssemblyReference.cache
+C:\Users\Vivbook\Desktop\BRS System GSTOU 1.0 Полностью готово (Плюс сводный журнал)\BRS Admin client\BRS Admin client\obj\Debug\BRS_Admin_client.CreateItogTable.resources
+C:\Users\Vivbook\Desktop\BRS System GSTOU 1.0 Полностью готово (Плюс сводный журнал)\BRS Admin client\BRS Admin client\obj\Debug\BRS_Admin_client.MainForm.resources
+C:\Users\Vivbook\Desktop\BRS System GSTOU 1.0 Полностью готово (Плюс сводный журнал)\BRS Admin client\BRS Admin client\obj\Debug\BRS_Admin_client.Properties.Resources.resources
+C:\Users\Vivbook\Desktop\BRS System GSTOU 1.0 Полностью готово (Плюс сводный журнал)\BRS Admin client\BRS Admin client\obj\Debug\BRS_Admin_client.SubjectListForm.resources
+C:\Users\Vivbook\Desktop\BRS System GSTOU 1.0 Полностью готово (Плюс сводный журнал)\BRS Admin client\BRS Admin client\obj\Debug\BRS Admin client.csproj.GenerateResource.Cache
+C:\Users\Vivbook\Desktop\BRS System GSTOU 1.0 Полностью готово (Плюс сводный журнал)\BRS Admin client\BRS Admin client\obj\Debug\BRS Admin client.exe.licenses
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.0\BRS Admin client\BRS Admin client\bin\Debug\BRS Admin client.exe.config
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.0\BRS Admin client\BRS Admin client\obj\Debug\BRS Admin client.exe
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.0\BRS Admin client\BRS Admin client\obj\Debug\BRS Admin client.pdb
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.1\BRS Admin client\BRS Admin client\bin\Debug\BRS Admin client.exe.config
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.1\BRS Admin client\BRS Admin client\bin\Debug\BRS Admin client.exe
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.1\BRS Admin client\BRS Admin client\bin\Debug\BRS Admin client.pdb
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.1\BRS Admin client\BRS Admin client\bin\Debug\EntityFramework.dll
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.1\BRS Admin client\BRS Admin client\bin\Debug\C1.Win.C1FlexGrid.4.xml
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.1\BRS Admin client\BRS Admin client\bin\Debug\EntityFramework.xml
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.1\BRS Admin client\BRS Admin client\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.1\BRS Admin client\BRS Admin client\obj\Debug\BRS Admin client.csprojResolveAssemblyReference.cache
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.1\BRS Admin client\BRS Admin client\obj\Debug\BRS_Admin_client.CreateItogTable.resources
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.1\BRS Admin client\BRS Admin client\obj\Debug\BRS_Admin_client.MainForm.resources
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.1\BRS Admin client\BRS Admin client\obj\Debug\BRS_Admin_client.Properties.Resources.resources
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.1\BRS Admin client\BRS Admin client\obj\Debug\BRS_Admin_client.SubjectListForm.resources
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.1\BRS Admin client\BRS Admin client\obj\Debug\BRS Admin client.csproj.GenerateResource.Cache
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.1\BRS Admin client\BRS Admin client\obj\Debug\BRS Admin client.exe.licenses
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.1\BRS Admin client\BRS Admin client\obj\Debug\BRS Admin client.exe
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.1\BRS Admin client\BRS Admin client\obj\Debug\BRS Admin client.pdb
+X:\Developing\Написанные проги\BRS\BRS System GSTOU 3.2\BRS Admin client\BRS Admin client\bin\Debug\BRS Admin client.exe.config
+X:\Developing\Написанные проги\BRS\BRS System GSTOU 3.2\BRS Admin client\BRS Admin client\obj\Debug\BRS Admin client.exe
+X:\Developing\Написанные проги\BRS\BRS System GSTOU 3.2\BRS Admin client\BRS Admin client\obj\Debug\BRS Admin client.pdb
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.2\BRS Admin client\BRS Admin client\bin\Debug\BRS Admin client.exe.config
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.2\BRS Admin client\BRS Admin client\obj\Debug\BRS Admin client.exe
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.2\BRS Admin client\BRS Admin client\obj\Debug\BRS Admin client.pdb
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.2\BRS Admin client\BRS Admin client\bin\Debug\BRS Admin client.exe
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.2\BRS Admin client\BRS Admin client\bin\Debug\BRS Admin client.pdb
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.2\BRS Admin client\BRS Admin client\bin\Debug\EntityFramework.dll
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.2\BRS Admin client\BRS Admin client\bin\Debug\C1.Win.C1FlexGrid.4.xml
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.2\BRS Admin client\BRS Admin client\bin\Debug\EntityFramework.xml
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.2\BRS Admin client\BRS Admin client\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.2\BRS Admin client\BRS Admin client\obj\Debug\BRS_Admin_client.CreateItogTable.resources
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.2\BRS Admin client\BRS Admin client\obj\Debug\BRS_Admin_client.MainForm.resources
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.2\BRS Admin client\BRS Admin client\obj\Debug\BRS_Admin_client.Properties.Resources.resources
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.2\BRS Admin client\BRS Admin client\obj\Debug\BRS_Admin_client.SubjectListForm.resources
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.2\BRS Admin client\BRS Admin client\obj\Debug\BRS Admin client.csproj.GenerateResource.Cache
+C:\Users\MacWin\Desktop\BRS System GSTOU 3.2\BRS Admin client\BRS Admin client\obj\Debug\BRS Admin client.exe.licenses
+C:\Users\MacWin\Source\Repos\BRSrepo\BRS Admin client\BRS Admin client\bin\Debug\BRS Admin client.exe.config
+C:\Users\MacWin\Source\Repos\BRSrepo\BRS Admin client\BRS Admin client\obj\Debug\BRS Admin client.exe
+C:\Users\MacWin\Source\Repos\BRSrepo\BRS Admin client\BRS Admin client\obj\Debug\BRS Admin client.pdb
